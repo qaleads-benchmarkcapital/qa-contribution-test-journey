@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
-  <Settings projectName="WealthPlatform.Reviews.UI.Test.Specification" />
-  <Execution stopAfterFailures="0" retryFor="None" testThreadCount="3" testSchedulingMode="Sequential" />
-  <TestThreads>
-    <TestThread id="0">
-      <TestAffinity>@sequential</TestAffinity>
-    </TestThread>
-  </TestThreads>
-  <!-- For collecting by a SpecRun server update and enable the following element. For using the 
-      collected statistics, set testSchedulingMode="Adaptive" attribute on the <Execution> element.
-    <Server serverUrl="http://specrunserver:6365" publishResults="true" />
-  -->
+  <Settings projectName="QA.Contribution.Test.Journey" />
+  <Execution stopAfterFailures="0" retryFor="None" testSchedulingMode="Sequential" />
   <TestAssemblyPaths>
-    <TestAssemblyPath>WealthPlatform.Reviews.UI.Test.Specification.dll</TestAssemblyPath>
+    <TestAssemblyPath>QA.Contribution.Test.Journe.dll</TestAssemblyPath>
   </TestAssemblyPaths>
-  <Environment apartmentState="MTA"  testThreadIsolation="SharedAppDomain"/>
 </TestProfile>
