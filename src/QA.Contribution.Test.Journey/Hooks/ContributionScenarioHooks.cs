@@ -1,26 +1,58 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+using OpenQA.Selenium;
+
 using TechTalk.SpecFlow;
 
 namespace QA.Contribution.Test.Journey.Hooks
 {
     [Binding]
-    public sealed class ContributionScenarioHooks
+    public class ContributionScenarioHooks
     {
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
+        private ScenarioContext _context;
 
-        [BeforeScenario]
-        public void BeforeScenario()
+        public ContributionScenarioHooks(ScenarioContext context)
         {
-            //TODO: implement logic that has to run before executing each scenario
+            _context = context;
         }
 
-        [AfterScenario]
-        public void AfterScenario()
+        [BeforeScenario(Order = 0)]
+        public void BeforeScenarioCreateWebDr()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            try
+            {
+                _context.Set(WebDriverBuilder.CreateNew(), ScenarioContextConstants.WebDriver);
+            }
+            catch (Exception e)
+            {
+                e.AppendReport("Failed to create web driver.");
+            }
+        }
+
+        [AfterScenario(Order = 0)]
+        public void QuitDriver()
+        {
+            try
+            {
+                _context.Get<IWebDriver>(ScenarioContextConstants.WebDriver).Quit();
+            }
+            catch (Exception e)
+            {
+                e.AppendReport("Failed to quit web driver.");
+            }
+        }
+
+        [AfterScenario(Order = 1)]
+        public void RemoveDriverFromContext()
+        {
+            try
+            {
+                _context.Remove(ScenarioContextConstants.WebDriver);
+            }
+            catch (Exception e)
+            {
+                e.AppendReport("Removing driver from context has failed.");
+            }
         }
     }
 }

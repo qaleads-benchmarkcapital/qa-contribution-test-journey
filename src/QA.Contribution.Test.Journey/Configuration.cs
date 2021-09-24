@@ -8,7 +8,7 @@ namespace QA.Contribution.Test.Journey
 {
     public static class Configuration
     {
-        private static ReadOnlyDictionary<string, string> Get()
+        public static ReadOnlyDictionary<string, string> Get()
         {
             IConfiguration configuration = new ConfigurationBuilder()
                 .GetCurrentDirectory(out string currentDirectory)
