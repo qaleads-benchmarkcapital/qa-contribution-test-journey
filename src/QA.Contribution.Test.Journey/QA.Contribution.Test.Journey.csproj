@@ -22,4 +22,8 @@
     </None>
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="Start taskkill /im chromedriver.exe /f" />
+  </Target>
+
 </Project>

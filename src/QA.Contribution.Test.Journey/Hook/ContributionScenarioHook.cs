@@ -4,14 +4,14 @@ using OpenQA.Selenium;
 
 using TechTalk.SpecFlow;
 
-namespace QA.Contribution.Test.Journey.Hooks
+namespace QA.Contribution.Test.Journey.Hook
 {
     [Binding]
-    public class ContributionScenarioHooks
+    public class ContributionScenarioHook
     {
         private ScenarioContext _context;
 
-        public ContributionScenarioHooks(ScenarioContext context)
+        public ContributionScenarioHook(ScenarioContext context)
         {
             _context = context;
         }
