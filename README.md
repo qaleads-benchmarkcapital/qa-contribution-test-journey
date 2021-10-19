@@ -60,12 +60,12 @@ Consistency is important to readability which in turn help keep the maintenance 
 #### Task 2: Refactor an Existing Scenario in the Feature File
 In the Feature File <name> there are a number of tests already implemented:
 <insert screenshot here of feature file >
-If you take a look at the scenario with the tag @refactor you should notice that the Gherkin doesn’t quite look like the other scenarios in the Feature file.
+If you take a look at the scenario with the tag `@refactor` you should notice that the Gherkin doesn’t quite look like the other scenarios in the Feature file.
 We would like you to refactor the Gherkin in the scenario so that it follows the same patterns as the other scenarios that are in the Feature file.
 In refactoring this scenario, we encourage you to re-use any existing Steps / Step Implementations, but if you do re-use (and refactor) any existing Steps / Step Implementations please make sure that in doing so that all of the existing scenarios still Pass!
 
 #### Task 3 : Fix a Failing Scenario in the Feature File
-The scenario with the tag @failing currently runs as is provided in the solution, but when the scenario is ran, the scenario completes but the outcome is that it Fails in the Then step implementation (pay attention to the Assert).
+The scenario with the tag `@failing` currently runs as is provided in the solution, but when the scenario is ran, the scenario completes but the outcome is that it Fails in the Then step implementation (pay attention to the Assert).
 <insert screenshot here of failing test>
 We would like you to fix this scenario so that when the scenario is ran after your changes, the outcome of the scenario changes so that it Passes.
 Please make sure that after you have fixed this scenario, all of the other scenarios in the Feature File (either existing or any you have added) still run correctly and have Pass as their outcome.
@@ -95,7 +95,7 @@ Description: Provide an overview of the changes you made here, call out the task
 Pre-Release: Set to True.
 
 **Notes:** 
-- we would like you to use the conventional commits approach to commit comments when committing changes  (https://www.conventionalcommits.org/en/v1.0.0/#summary)
+- we would like you to use the conventional commits approach to commit comments when committing changes [Convential commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 - we encourage you to commit changes little and often, at the minimum we would like to see different commits with appropriate commit messages using conventionalcommits for each of the tasks you undertake
 - if you commit changes to your branch after you have created a Release, then please create a further release, incrementing the Version in the Tag and Release Title with additional comment in the Description that provides an overview of what changes are contained in the further Release.
 
