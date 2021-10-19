@@ -26,6 +26,7 @@ namespace QA.Contribution.Test.Journey.Hook
             catch (Exception e)
             {
                 e.AppendReport("Failed to create web driver.");
+                throw;
             }
         }
 
