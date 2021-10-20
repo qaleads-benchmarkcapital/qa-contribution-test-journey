@@ -71,7 +71,7 @@ In refactoring this scenario, we encourage you to re-use any existing Steps / St
 #### Task 3 : Fix a Failing Scenario in the Feature File
 The scenario with the tag `@failing` currently runs as is provided in the solution, but when the scenario is ran, the scenario completes but the outcome is that it Fails in the Then step implementation (pay attention to the Assert).
 
-![Alt](/failingScenario.png "Screenshot of feature file")
+![Alt](/failingScenario.png "Screenshot of failing scenario")
 
 We would like you to fix this scenario so that when the scenario is ran after your changes, the outcome of the scenario changes so that it Passes.
 Please make sure that after you have fixed this scenario, all of the other scenarios in the Feature File (either existing or any you have added) still run correctly and have Pass as their outcome.
