@@ -37,7 +37,7 @@ The solution as is will allow you to run the Existing Scenarios from within the 
 #### Address :houses:
 https://github.com/qaleads-benchmarkcapital/qa-contribution-test-journey 
 
-### Toolbox :toolbox:
+### Toolbox
 The solution uses `Selenium`, `Specflow`, `SpecFlow runner` and `C# / .net core 3.1`.
 We think it will be best if you use a version of `Visual Studio 2019` together with `SpecFlow for Visual Studio 2019` extension to complete this technical test.
 We recommend using `GitHub Desktop` to work with the Code in `GitHub`.
@@ -103,7 +103,7 @@ Please edit `README.md` with answers to the following questions:
 <Insert your answer here>
 ```
 
-### Submitting your test response :checkered_flag:
+### Submitting your test response
 We would like you to demonstrate your ability to use `GIT` when submitting your changes in completing The Tasks in this Technical Brief.
 It is very important that you demonstrate your competency in using `GIT` and you should treat how you submit your changes as an **important** part of the test.
 
