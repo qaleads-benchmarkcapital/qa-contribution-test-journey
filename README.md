@@ -115,7 +115,7 @@ In order for you to submit  your changes,  you will need to :
 
 | Meta data                                     | Description                                                                                                                               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Tag: <your_name>.<dd>.<mm>.<yyyy>.Version.<n> | e.g. `Emma-Jones.27.09.2021.Version.1`                                                                                                    |
+| Tag: `<your_name>.<dd>.<mm>.<yyyy>.Version.<n>` | e.g. `Emma-Jones.27.09.2021.Version.1`                                                                                                    |
 | Target                                        | the new branch you created                                                                                                                |
 | Release Title                                 | Use the same value you used in the Tag above                                                                                              |
 | Description                                   | Provide an overview of the changes you made here, call out the tasks that you completed in the changes you committed that are contained - |
