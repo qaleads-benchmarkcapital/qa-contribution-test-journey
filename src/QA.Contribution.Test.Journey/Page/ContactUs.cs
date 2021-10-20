@@ -10,7 +10,7 @@ namespace QA.Contribution.Test.Journey.Page
         {
         }
 
-        private readonly string _emailLocator = "//*[@id='email']";
+        private readonly string _emailLocator = "//*[@id='fileUpload']";
         private readonly string _subjectHeadingLocator = "//*[@id='id_contact']";
         private readonly string _orderRefrenceLocator = "//*[@id='id_order']";
         private readonly string _messageLocator = "//*[@id='message']";
@@ -81,7 +81,7 @@ namespace QA.Contribution.Test.Journey.Page
                 subjectHeading = subjects[Faker.RandomNumber.Next(0, 1)];
             }
 
-            var selectSubjectHeading = Driver.GetClickableSelectElement(By.XPath(_subjectHeadingLocator));
+            var selectSubjectHeading = Driver.GetSelectElement(By.XPath(_subjectHeadingLocator));
             selectSubjectHeading.SelectByText(subjectHeading);
         }
 

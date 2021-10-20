@@ -21,6 +21,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void GivenTheContactUsPageIsDisplayed()
         {
             var expectedUrl = "http://automationpractice.com/index.php?controller=contact";
+            _landingPage.Navigate();
             var actualUrl = _landingPage.ClickContanctUs();
             Assert.AreEqual(expectedUrl, actualUrl);
         }
@@ -87,24 +88,28 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void ThenTheMessageIsSuccessfullySubmitted()
         {
             var message = _contactUsPage.GetSuccessMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
         }
         
         [Then(@"the message is not submitted successully")]
         public void ThenTheMessageIsNotSubmittedSuccessully()
         {
             var message = _contactUsPage.GetErrorMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
         }
         
         [Then(@"the customer is informed of the email validation error")]
         public void ThenTheCustomerIsInformedOfTheEmailValidationError()
         {
             var message = _contactUsPage.GetErrorMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
         }
         
         [Then(@"the user is presented with the correct validation message")]
         public void ThenTheUserIsPresentedWithTheCorrectValidationMessage()
         {
             var message = _contactUsPage.GetErrorMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
         }
     }
 }

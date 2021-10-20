@@ -37,11 +37,9 @@ namespace QA.Contribution.Test.Journey
             .Until(ExpectedConditions.ElementToBeClickable(by));
         }
 
-        public static SelectElement GetClickableSelectElement(this IWebDriver driver, By by)
+        public static SelectElement GetSelectElement(this IWebDriver driver, By by)
         {
-            
-            return new SelectElement(new WebDriverWait(driver, TimeSpan.FromSeconds(120))
-                .Until(ExpectedConditions.ElementToBeClickable(by)));
+            return new SelectElement(driver.FindElement(by));
         }
     }
 }

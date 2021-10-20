@@ -50,6 +50,7 @@ Scenario: The one where the customer provides an invalid email address in a Tech
 	Then the message is not submitted successully
 	And the customer is informed of the email validation error
 
+@failing
 Scenario: The one where the customer provides a malformed email address in a Techincal Support Request
 	Given the Contact Us page is displayed
 	When the customer completes a Techincal Support Request with a malformed email address

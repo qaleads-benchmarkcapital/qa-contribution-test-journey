@@ -19,17 +19,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="appSettings.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="chromedriver.exe">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-		<Exec Command="Start taskkill /im chromedriver.exe /f" />
+		<Exec Command="Start taskkill /im chromedriver.exe /f&#xD;&#xA;Start taskkill /im dotnet.exe /f" />
 	</Target>
 
 	<Target Name="RemoveProfile" BeforeTargets="Build">
 		<RemoveDir Directories="$(TargetDir)\bin\" />
+	</Target>
+
+	<Target Name="RemoveObj" BeforeTargets="Build">
+		<RemoveDir Directories="$(TargetDir)\obj\" />
 	</Target>
 
 </Project>
