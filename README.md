@@ -22,7 +22,7 @@ If you have any queries, please reach out to your agent who will pass queries on
 For this technical test,  a Contact Form that many users of e-commerce websites should be familiar with has been chosen as the Application Under Test.
 Please see the Feature File <name> there are
 
-![Alt](/contactUs.png "Contact Us user interface")
+![contactUs](/contactUs.png "Contact Us user interface")
 
 #### Address
 http://automationpractice.com/index.php?controller=contact 
@@ -45,7 +45,7 @@ We recommend using GitHub Desktop work with the Code in GitHub.
 ### Existing Scenarios
 The solution contains the Feature File `ContactUs.feature`
 
-![Alt](/glossaryDescription.png "Screenshot of glossary and description")
+![glossaryDescription](/glossaryDescription.png "Screenshot of glossary and description")
 
 The Feature File contains not only the scenarios but also a Description as well as a Glossary. 
 Please examine the Feature File carefully, you need to understand not just the scenarios in the Feature File, pay close attention to both the Description and the Glossary.
@@ -62,7 +62,7 @@ Consistency is important to readability which in turn help keep the maintenance 
 #### Task 2: Refactor an Existing Scenario in the Feature File
 In the Feature File `ContactUs.feature` there are a number of tests already implemented:
 
-![Alt](/featureFile.png "Screenshot of feature file")
+![featureFile](/featureFile.png "Screenshot of feature file")
 
 If you take a look at the scenario with the tag `@refactor` you should notice that the Gherkin doesn’t quite look like the other scenarios in the Feature file.
 We would like you to refactor the Gherkin in the scenario so that it follows the same patterns as the other scenarios that are in the Feature file.
@@ -71,7 +71,7 @@ In refactoring this scenario, we encourage you to re-use any existing Steps / St
 #### Task 3 : Fix a Failing Scenario in the Feature File
 The scenario with the tag `@failing` currently runs as is provided in the solution, but when the scenario is ran, the scenario completes but the outcome is that it Fails in the Then step implementation (pay attention to the Assert).
 
-![Alt](/failingScenario.png "Screenshot of failing scenario")
+![failingScenario](/failingScenario.png "Screenshot of failing scenario")
 
 We would like you to fix this scenario so that when the scenario is ran after your changes, the outcome of the scenario changes so that it Passes.
 Please make sure that after you have fixed this scenario, all of the other scenarios in the Feature File (either existing or any you have added) still run correctly and have Pass as their outcome.
