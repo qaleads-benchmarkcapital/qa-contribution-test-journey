@@ -40,7 +40,7 @@ https://github.com/qaleads-benchmarkcapital/qa-contribution-test-journey
 ### Toolbox
 The solution uses `Selenium`, `Specflow`, `SpecFlow runner` and `C# / .net core 3.1`.
 We think it will be best if you use a version of `Visual Studio 2019` together with `SpecFlow for Visual Studio 2019` extension to complete this technical test.
-We recommend using GitHub Desktop work with the Code in GitHub.
+We recommend using `GitHub Desktop` to work with the Code in GitHub.
 
 ### Existing Scenarios
 The solution contains the Feature File `ContactUs.feature`
