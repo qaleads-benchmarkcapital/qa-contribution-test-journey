@@ -69,7 +69,7 @@ We would like you to refactor the Gherkin in the scenario so that it follows the
 In refactoring this scenario, we encourage you to re-use any existing Steps / Step Implementations, but if you do re-use (and refactor) any existing Steps / Step Implementations please make sure that in doing so that all of the existing scenarios still Pass!
 
 #### Task 3 : Fix a Failing Scenario in the Feature File
-The scenario with the tag `@failing` currently runs as is provided in the solution, but when the scenario is ran, the scenario completes but the outcome is that it Fails in the Then step implementation (pay attention to the Assert).
+The scenario with the tag `@failing` currently runs as is provided in the solution, but when the scenario is ran, the scenario completes but the outcome is that it Fails in the Then step implementation (pay attention to the locator).
 
 ![failingScenario](/failingScenario.PNG "Screenshot of failing scenario")
 
