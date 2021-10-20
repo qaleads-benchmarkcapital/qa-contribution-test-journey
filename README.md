@@ -123,7 +123,7 @@ In order for you to submit  your changes,  you will need to :
 | Pre-Release                                   | Set to True                                                                                                                               |
 
 5. Push your commited changes to a **new** remote branch that you have created
-6. Raise a **new** Pull Request in `GitHub` so that **your** technical test submittion can be reviewd :tada:
+6. Raise a **new** Pull Request in `GitHub` so that **your** technical test submission can be reviewed :tada:
 
 #### Branch name 
 
