@@ -40,7 +40,7 @@ https://github.com/qaleads-benchmarkcapital/qa-contribution-test-journey
 ### Toolbox
 The solution uses `Selenium`, `Specflow`, `SpecFlow runner` and `C# / .net core 3.1`.
 We think it will be best if you use a version of `Visual Studio 2019` together with `SpecFlow for Visual Studio 2019` extension to complete this technical test.
-We recommend using `GitHub Desktop` to work with the Code in GitHub.
+We recommend using `GitHub Desktop` to work with the Code in `GitHub`.
 
 ### Existing Scenarios
 The solution contains the Feature File `ContactUs.feature`
@@ -104,11 +104,11 @@ Please edit `README.md` with answers to the following questions:
 ```
 
 ### Submitting your test response
-We would like you to demonstrate your ability to use GIT when submitting your changes in completing The Tasks in this Technical Brief.
-It is very important that you demonstrate your competency in using GIT and you should treat how you submit your changes as an important part of the test.
+We would like you to demonstrate your ability to use `GIT` when submitting your changes in completing The Tasks in this Technical Brief.
+It is very important that you demonstrate your competency in using `GIT` and you should treat how you submit your changes as an **important** part of the test.
 
 In order for you to submit  your changes,  you will need to :
-1.	Clone the repository mentioned in Code in GitHub
+1.	Clone the repository mentioned in Code in `GitHub`
 2.	Create a new branch in the repository for your changes, name the branch you create using the [this](#branch-name) naming convention 
 3.	Commit all changes you make in completing The Tasks to the new branch you have created
 4.	Once you have committed all of your changes to your branch, create a Release using the following meta data :
@@ -121,6 +121,9 @@ In order for you to submit  your changes,  you will need to :
 | Description                                   | Provide an overview of the changes you made here, call out the tasks that you completed in the changes you committed that are contained - |
 |                                               | in the branch on which you have targeted this release                                                                                     |
 | Pre-Release                                   | Set to True                                                                                                                               |
+
+5. Push your commited changes to a **new** remote branch that you have created
+6. Raise a **new** Pull Request in `GitHub` so that **your** technical test submittion can be reviewd 
 
 #### Branch name 
 
