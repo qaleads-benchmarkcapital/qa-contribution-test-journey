@@ -33,7 +33,10 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading(subjectHeading);
             _contactUsPage.EnterMessage();
         }
+
         
+
+
         [When(@"the customer submits the message")]
         public void WhenTheCustomerSubmitsTheMessage()
         {
@@ -44,7 +47,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesAOrderQueryMessage()
         {
             _contactUsPage.EnterEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Customer service");
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
@@ -53,7 +56,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechnicalSupportRequestMessage()
         {
             _contactUsPage.EnterEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterMessage();
         }
         
@@ -79,11 +82,16 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
             _contactUsPage.EnterInvalidEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
+
         
+
+
+
+
         [Then(@"the message is successfully submitted")]
         public void ThenTheMessageIsSuccessfullySubmitted()
         {
@@ -111,5 +119,8 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
+
+        
+
     }
 }
