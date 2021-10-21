@@ -24,16 +24,16 @@ namespace QA.Contribution.Test.Journey.Feature
 	So that I can get support
 	
 	Description:
-	A Contact Form that allows customers to send a message to Customer Servies or to the Webmaster.
-	In submitting a message the customer uses the subject line to indicate the message destination (Customer Servies or to the Webmaster)
-	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully to either Destination.
+	A Contact Form that allows customers to send a message to Customer Services or to the Webmaster.
+	In submitting a message the customer uses the subject line to indicate the message destination (Customer Services or to the Webmaster)
+	In submitting a message the customer must provide a valid 'Email address' and a 'Message' body for the message to be submitted successfully to either Destination.
 	In submitting a message, the customer can provide also (optionally) an 'Order reference' and upload an 'Attachment' to provide further information.
 	
 	Glossary:
 	Destination - Either Customer Services or Webmaster
 	Basic Message - A message intended for either destination that has a email adddress and a message body
 	Order Query - A message intended for Customer Services that has a email address, a message body and a Order Reference, where the customer is sending a query relating to an existing order
-	Techincal Support Request - A message intended for the Webmaster that has a email address, a message body and an Attachment, where the csutomer reports an issue with creating a new order
+	Technical Support Request - A message intended for the Webmaster that has a email address, a message body and an Attachment, where the customer reports an issue with creating a new order
 	Invalid Email Address -  An empty string
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain", SourceFile="Feature\\ContactUs.feature", SourceLine=0)]
     public partial class ContactUsFeature
@@ -55,16 +55,16 @@ namespace QA.Contribution.Test.Journey.Feature
 	So that I can get support
 	
 	Description:
-	A Contact Form that allows customers to send a message to Customer Servies or to the Webmaster.
-	In submitting a message the customer uses the subject line to indicate the message destination (Customer Servies or to the Webmaster)
-	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully to either Destination.
+	A Contact Form that allows customers to send a message to Customer Services or to the Webmaster.
+	In submitting a message the customer uses the subject line to indicate the message destination (Customer Services or to the Webmaster)
+	In submitting a message the customer must provide a valid 'Email address' and a 'Message' body for the message to be submitted successfully to either Destination.
 	In submitting a message, the customer can provide also (optionally) an 'Order reference' and upload an 'Attachment' to provide further information.
 	
 	Glossary:
 	Destination - Either Customer Services or Webmaster
 	Basic Message - A message intended for either destination that has a email adddress and a message body
 	Order Query - A message intended for Customer Services that has a email address, a message body and a Order Reference, where the customer is sending a query relating to an existing order
-	Techincal Support Request - A message intended for the Webmaster that has a email address, a message body and an Attachment, where the csutomer reports an issue with creating a new order
+	Technical Support Request - A message intended for the Webmaster that has a email address, a message body and an Attachment, where the customer reports an issue with creating a new order
 	Invalid Email Address -  An empty string
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
@@ -247,15 +247,15 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides an invalid email address in a Techincal Suppo" +
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides an invalid email address in a Technical Suppo" +
             "rt Request", new string[] {
                 "refactor"}, SourceLine=43)]
-        public virtual void TheOneWhereTheCustomerProvidesAnInvalidEmailAddressInATechincalSupportRequest()
+        public virtual void TheOneWhereTheCustomerProvidesAnInvalidEmailAddressInATechnicalSupportRequest()
         {
             string[] tagsOfScenario = new string[] {
                     "refactor"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides an invalid email address in a Techincal Suppo" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides an invalid email address in a Technical Suppo" +
                     "rt Request", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 44
 this.ScenarioInitialize(scenarioInfo);
@@ -293,7 +293,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 50
- testRunner.Then("the message is not submitted successully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 51
  testRunner.And("the customer is informed of the email validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -302,15 +302,15 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides a malformed email address in a Techincal Supp" +
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides a malformed email address in a Technical Supp" +
             "ort Request", new string[] {
                 "failing"}, SourceLine=53)]
-        public virtual void TheOneWhereTheCustomerProvidesAMalformedEmailAddressInATechincalSupportRequest()
+        public virtual void TheOneWhereTheCustomerProvidesAMalformedEmailAddressInATechnicalSupportRequest()
         {
             string[] tagsOfScenario = new string[] {
                     "failing"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides a malformed email address in a Techincal Supp" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides a malformed email address in a Technical Supp" +
                     "ort Request", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 54
 this.ScenarioInitialize(scenarioInfo);
@@ -336,7 +336,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 56
- testRunner.When("the customer completes a Techincal Support Request with a malformed email address" +
+ testRunner.When("the customer completes a Technical Support Request with a malformed email address" +
                         "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 57

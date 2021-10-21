@@ -19,7 +19,7 @@ namespace QA.Contribution.Test.Journey.Page
             Driver.Navigate();
         }
 
-        public string ClickContanctUs()
+        public string ClickContactUs()
         {
             Driver.GetClickableElement(By.XPath(_contactUsLocator)).Click();
             return Driver.Url;

@@ -5,6 +5,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="obj\**" />
+	  <EmbeddedResource Remove="obj\**" />
+	  <None Remove="obj\**" />
+	  <SpecFlowFeatureFiles Remove="obj\**" />
+	  <SpecFlowObsoleteCodeBehindFiles Remove="obj\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
 		<PackageReference Include="Faker.Net" Version="1.5.150" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />

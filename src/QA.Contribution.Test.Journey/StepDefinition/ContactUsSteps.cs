@@ -22,7 +22,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             var expectedUrl = "http://automationpractice.com/index.php?controller=contact";
             _landingPage.Navigate();
-            var actualUrl = _landingPage.ClickContanctUs();
+            var actualUrl = _landingPage.ClickContactUs();
             Assert.AreEqual(expectedUrl, actualUrl);
         }
         
@@ -75,7 +75,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading("Webmaster");
         }
         
-        [When(@"the customer completes a Techincal Support Request with a malformed email address")]
+        [When(@"the customer completes a Technical Support Request with a malformed email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
             _contactUsPage.EnterInvalidEmailAddress();
@@ -91,8 +91,8 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
         
-        [Then(@"the message is not submitted successully")]
-        public void ThenTheMessageIsNotSubmittedSuccessully()
+        [Then(@"the message is not submitted successfully")]
+        public void ThenTheMessageIsNotSubmittedSuccessfully()
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
