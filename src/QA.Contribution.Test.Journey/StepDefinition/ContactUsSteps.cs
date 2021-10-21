@@ -33,9 +33,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading(subjectHeading);
             _contactUsPage.EnterMessage();
         }
-
-        
-
+               
 
         [When(@"the customer submits the message")]
         public void WhenTheCustomerSubmitsTheMessage()
@@ -78,12 +76,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading("Webmaster");
         }
         
-        [When(@"the customer completes a Technical Support Request with a malformed email address")]
-        public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
+                
+        [When(@"the customer completes a Technical Support Request with an invalid email address")]
+        public void WhenTheCustomerCompletesATechnicalSupportRequestWithAnInvalidEmailAddress()
         {
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.SelectSubjectHeading("Webmaster");
-            _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
 
@@ -91,12 +89,15 @@ namespace QA.Contribution.Test.Journey.StepDefinition
 
 
 
+        
+
 
         [Then(@"the message is successfully submitted")]
         public void ThenTheMessageIsSuccessfullySubmitted()
         {
             var message = _contactUsPage.GetSuccessMessage();
-            Assert.IsFalse(string.IsNullOrEmpty(message));
+            //Assert.IsFalse(string.IsNullOrEmpty(message));
+            Assert.IsTrue(message == "Your message has been successfully sent to our team.");
         }
         
         [Then(@"the message is not submitted successfully")]
@@ -110,7 +111,8 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void ThenTheCustomerIsInformedOfTheEmailValidationError()
         {
             var message = _contactUsPage.GetErrorMessage();
-            Assert.IsFalse(string.IsNullOrEmpty(message));
+            //Assert.IsFalse(string.IsNullOrEmpty(message));
+            Assert.IsTrue(message.Contains("Invalid email address."));
         }
         
         [Then(@"the user is presented with the correct validation message")]
@@ -120,7 +122,15 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
 
-        
+        [Then(@"the customer is informed of the message validation error")]
+        public void ThenTheCustomerIsInformedOfTheMessageValidationError()
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            //Assert.IsFalse(string.IsNullOrEmpty(message));
+            Assert.IsTrue(message.Contains ("The message cannot be blank."));
+        }
+
+
 
     }
 }
