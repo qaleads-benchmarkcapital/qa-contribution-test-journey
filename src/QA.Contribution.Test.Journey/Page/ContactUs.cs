@@ -10,13 +10,14 @@ namespace QA.Contribution.Test.Journey.Page
         {
         }
 
-        private readonly string _emailLocator = "//*[@id='fileUpload']";
+        private readonly string _emailLocator = "//*[@id='email']";
         private readonly string _subjectHeadingLocator = "//*[@id='id_contact']";
         private readonly string _orderRefrenceLocator = "//*[@id='id_order']";
         private readonly string _messageLocator = "//*[@id='message']";
         private readonly string _submitMessageLocator = "//*[@id='submitMessage']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
         private readonly string _successLocator = "//*[@class='alert alert-success']";
+        
 
         public void Navigate()
         {
@@ -53,6 +54,8 @@ namespace QA.Contribution.Test.Journey.Page
             var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
             emailField.Clear();
         }
+
+        
 
         public string EnterOrderReference()
         {
@@ -96,5 +99,7 @@ namespace QA.Contribution.Test.Journey.Page
             var successAlert = Driver.GetClickableElement(By.XPath(_successLocator));
             return successAlert.Text;
         }
+
+        
     }
 }
