@@ -93,7 +93,24 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterMessage();
         }
 
-        
+        [When(@"the customer completes a Technical Support Request with a malformed email address")]
+        public void WhenTheCustomerCompletesATechnicalSupportRequestWithAMalformedEmailAddress()
+        {
+            _contactUsPage.EnterMalformedEmailAddress();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
+            _contactUsPage.EnterMessage();
+        }
+
+
+        [When(@"the customer completes a Technical support request with an attachment")]
+        public void WhenTheCustomerCompletesATechnicalSupportRequestWithAnAttachment()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
+            _contactUsPage.EnterMessage();
+            _contactUsPage.SendFileLocation();
+
+        }
 
 
         [When(@"the customer completes a basic message with no subject header specified")]

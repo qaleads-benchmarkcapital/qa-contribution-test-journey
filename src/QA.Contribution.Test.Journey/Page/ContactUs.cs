@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 
 using TechTalk.SpecFlow;
+using System.Windows;
 
 namespace QA.Contribution.Test.Journey.Page
 {
@@ -19,6 +20,7 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _successLocator = "//*[@class='alert alert-success']";
         
 
+        private readonly string _fileUploadLocator = "//*[@id='fileUpload']";
         public void Navigate()
         {
             Driver.Url = Configuration.Get()[ConfigurationConstants.BaseUrl];
@@ -108,5 +110,18 @@ namespace QA.Contribution.Test.Journey.Page
         }
 
         
+        public void SendFileLocation()
+
+        {
+
+            
+
+            string filePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folderPath = System.IO.Path.GetDirectoryName(filePath);
+
+           Driver.FindElement(By.XPath(_fileUploadLocator)).SendKeys(folderPath+ "\\Test Data\\SampleJPEGImageforUploadTest.jpg");
+           
+        }
+
     }
 }
