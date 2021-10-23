@@ -66,3 +66,13 @@ Scenario: The one where the customer provides a malformed email address in a Tec
 		| Webmaster        |
 
 Scenario: The one where the customer uploads an attachment in a Technical Support Request
+	Scenario: The one where the customer submits a Basic Message without selecting a subject header
+	Given the Contact Us page is displayed
+	When the customer completes a basic message with no subject header specified
+	And the customer submits the message
+	Then the customer is informed of the subject header error
+
+
+
+	
+

@@ -96,8 +96,13 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         
 
 
+        [When(@"the customer completes a basic message with no subject header specified")]
+        public void WhenTheCustomerCompletesABasicMessageWithNoSubjectHeaderSpecified()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterMessage();
+        }
 
-        
 
 
         [Then(@"the message is successfully submitted")]
@@ -138,6 +143,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsTrue(message.Contains ("The message cannot be blank."));
         }
 
+        [Then(@"the customer is informed of the subject header error")]
+        public void ThenTheCustomerIsInformedOfTheSubjectHeaderError()
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsTrue(message.Contains("Please select a subject from the list provided."));
+        }
 
 
     }
