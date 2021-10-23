@@ -54,4 +54,15 @@ Scenario: The one where the customer provides an invalid email address in a Tech
 Scenario: The one where the customer provides a malformed email address in a Technical Support Request
 	Given the Contact Us page is displayed
 	When the customer completes a Technical Support Request with a malformed email address
-	Then the user is presented with the correct validation message
+	Then the user is presented with the correct validation message	And the customer submits the message
+	Given the Contact Us page is displayed
+	When the customer completes a Basic Message intended for <destination> with no message body
+	And the customer submits the message
+	Then the customer is informed of the message validation error
+
+	Examples: Message Destination
+		| destination      |
+		| Customer service |
+		| Webmaster        |
+
+Scenario: The one where the customer uploads an attachment in a Technical Support Request

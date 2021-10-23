@@ -55,7 +55,14 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.Clear();
         }
 
-        
+        public void ClearMessageBody()
+        {
+
+            var messageField = Driver.GetClickableElement(By.XPath(_messageLocator));
+            messageField.Clear();
+        }
+
+
 
         public string EnterOrderReference()
         {

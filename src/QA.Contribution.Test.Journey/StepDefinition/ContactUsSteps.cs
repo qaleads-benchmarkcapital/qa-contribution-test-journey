@@ -33,7 +33,15 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading(subjectHeading);
             _contactUsPage.EnterMessage();
         }
-               
+
+
+        [When(@"the customer completes a Basic Message intended for (.*) with no message body")]
+        public void WhenTheCustomerCompletesABasicMessageIntendedForCustomerServiceWithNoMessageBody(string subjectHeading)
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading(subjectHeading);
+            _contactUsPage.ClearMessageBody();
+        }
 
         [When(@"the customer submits the message")]
         public void WhenTheCustomerSubmitsTheMessage()
