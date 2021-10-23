@@ -40,15 +40,17 @@ Scenario: The one where the customer successfully submits a Technical Support Re
 	And the customer submits the message
 	Then the message is successfully submitted
 
-@refactor
+
+@refactored
+
 Scenario: The one where the customer provides an invalid email address in a Technical Support Request
-	Given the Contact Us page is displayed
-	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
-	And the user selects Webmaster in the Subject Heading field
-	And the customer submits the message
-	Then the message is not submitted successfully
-	And the customer is informed of the email validation error
+Given the Contact Us page is displayed
+When the customer completes a Technical Support Request with an invalid email address
+And the customer submits the message
+Then the message is not submitted successfully
+And the customer is informed of the email validation error
+
+
 
 @failing
 Scenario: The one where the customer provides a malformed email address in a Technical Support Request

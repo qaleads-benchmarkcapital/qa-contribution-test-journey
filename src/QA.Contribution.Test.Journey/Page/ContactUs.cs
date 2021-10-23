@@ -47,6 +47,13 @@ namespace QA.Contribution.Test.Journey.Page
             var email = Faker.Lorem.GetFirstWord();
             var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
             emailField.Clear();
+            //emailField.SendKeys(email);
+            return email;
+        }
+        {
+            var email = Faker.Lorem.GetFirstWord();
+            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
+            emailField.Clear();
             emailField.SendKeys(email);
             return email;
         }
