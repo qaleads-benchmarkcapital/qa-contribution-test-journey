@@ -18,8 +18,6 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _submitMessageLocator = "//*[@id='submitMessage']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
         private readonly string _successLocator = "//*[@class='alert alert-success']";
-        
-
         private readonly string _fileUploadLocator = "//*[@id='fileUpload']";
         public void Navigate()
         {
@@ -50,6 +48,9 @@ namespace QA.Contribution.Test.Journey.Page
             //emailField.SendKeys(email);
             return email;
         }
+
+        public string EnterMalformedEmailAddress()
+
         {
             var email = Faker.Lorem.GetFirstWord();
             var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
@@ -57,6 +58,7 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.SendKeys(email);
             return email;
         }
+          
 
         public void ClearEmailAddress()
         {

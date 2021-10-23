@@ -56,7 +56,11 @@ And the customer is informed of the email validation error
 Scenario: The one where the customer provides a malformed email address in a Technical Support Request
 	Given the Contact Us page is displayed
 	When the customer completes a Technical Support Request with a malformed email address
-	Then the user is presented with the correct validation message	And the customer submits the message
+	And the customer submits the message
+	Then the customer is presented with the correct validation message
+
+
+Scenario Outline: The one where the customer provides no message body in a Basic Message to Customer Services or the Webmaster
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message intended for <destination> with no message body
 	And the customer submits the message

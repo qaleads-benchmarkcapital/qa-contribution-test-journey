@@ -145,8 +145,8 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsTrue(message.Contains("Invalid email address."));
         }
         
-        [Then(@"the user is presented with the correct validation message")]
-        public void ThenTheUserIsPresentedWithTheCorrectValidationMessage()
+        [Then(@"the customer is presented with the correct validation message")]
+        public void ThenTheCustomerIsPresentedWithTheCorrectValidationMessage()
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
