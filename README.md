@@ -82,25 +82,29 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+Task 1: 1 hour (Included some refactoring of code + chores) 
+Task 2: 20 minutes
+Task 3: 10 minutes
+Task 4: 5 minutes
+
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+Overall the solution worked well. There were a few items I refactored such as the error message validation. Also I would maybe have moved the error message validation code to the Contact Us Page and then called this code with a method in the Step Definitions.
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 2 - Refactoring the invalid email address was fairly simple when you realise you just need to condense the steps into one new step. 
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Task 1 - (Specifically testing the file upload functionality). I needed to ensure that the sample image file I saved in the solution would copy to output to enable this to be available for all users when running the tests.Then ensuring I was able to call this dynamic location when passing the location to the file upload element.  
 ```
 
 ### Submitting your test response
