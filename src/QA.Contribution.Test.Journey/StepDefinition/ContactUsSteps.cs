@@ -25,7 +25,23 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             var actualUrl = _landingPage.ClickContanctUs();
             Assert.AreEqual(expectedUrl, actualUrl);
         }
-        
+        [When(@"the customer completes a Customer Service Request with a malformed email address")]
+        public void WhenTheCustomerCompletesACustomerServiceRequestWithAMalformedEmailAddress()
+        {
+            _contactUsPage.EnterInvalidEmailAddress();
+            _contactUsPage.SelectSubjectHeading("Customer service");
+            _contactUsPage.EnterOrderReference();
+            _contactUsPage.EnterMessage();
+        }
+
+
+        [When(@"the user types email address into the email address field")]
+        public void WhenTheUserTypesEmailAddressIntoTheEmailAddressField()
+        {
+            _contactUsPage.EnterEmailAddress();
+        }
+
+
         [When(@"the customer enters a Basic Message intended for (.*)")]
         public void WhenTheCustomerEntersABasicMessageIntendedForCustomerServices(string subjectHeading)
         {
@@ -39,7 +55,14 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.ClickSend();
         }
-        
+        [When(@"the customer is informed of the destination error")]
+        public void WhenTheCustomerIsInformedOfTheDestinationError()
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
+        }
+
+
         [When(@"the customer completes a Order Query message")]
         public void WhenTheCustomerCompletesAOrderQueryMessage()
         {
@@ -56,7 +79,13 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading();
             _contactUsPage.EnterMessage();
         }
-        
+        [When(@"the user selects Customer Service in the Subject Heading field")]
+        public void WhenTheUserSelectsCustomerServiceInTheSubjectHeadingField()
+        {
+            _contactUsPage.SelectSubjectHeading("Customer service");
+        }
+
+
         [When(@"the customer types an empty string into the email address field")]
         public void WhenTheCustomerTypesAnEmptyStringIntoTheEmailAddressField()
         {
@@ -68,7 +97,14 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.EnterMessage();
         }
-        
+        [When(@"the customer types malformed email into the email address field")]
+        public void WhenTheCustomerTypesMalformedEmailIntoTheEmailAddressField()
+        {
+            _contactUsPage.EnterInvalidEmailAddress();
+        }
+
+
+
         [When(@"the user selects Webmaster in the Subject Heading field")]
         public void WhenTheUserSelectsWebmasterInTheSubjectHeadingField()
         {

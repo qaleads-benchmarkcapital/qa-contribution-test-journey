@@ -55,3 +55,78 @@ Scenario: The one where the customer provides a malformed email address in a Tec
 	Given the Contact Us page is displayed
 	When the customer completes a Techincal Support Request with a malformed email address
 	Then the user is presented with the correct validation message
+
+
+Scenario: The one where the customer fails to provide destination for Basic Message(Customer Service or Webmaster)
+	Given the Contact Us page is displayed
+	When the user types email address into the email address field
+	And the user types a message into the message body field
+	And the customer submits the message
+	And the customer is informed of the destination error
+	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides an invalid email address for Basic Message in Webmaster
+	Given the Contact Us page is displayed
+	When the user selects Webmaster in the Subject Heading field
+	And the customer types an empty string into the email address field
+	And the user types a message into the message body field
+	And the customer submits the message
+	Then the message is not submitted successully
+	And the customer is informed of the email validation error
+    Then the user is presented with the correct validation message
+
+
+Scenario: The one where the customer provides an invalid email address for Basic Message in for Customer Service
+	Given the Contact Us page is displayed
+	When the user selects Customer Service in the Subject Heading field
+	And the customer types an empty string into the email address field
+	And the user types a message into the message body field
+	And the customer submits the message
+	Then the message is not submitted successully
+	And the customer is informed of the email validation error
+    Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides a malformed email address for Basic Message in Webmaster
+	Given the Contact Us page is displayed
+	When the user selects Webmaster in the Subject Heading field
+	And the customer types malformed email into the email address field
+	And the user types a message into the message body field
+	And the customer submits the message
+	Then the message is not submitted successully
+	And the customer is informed of the email validation error
+    Then the user is presented with the correct validation message
+
+
+Scenario: The one where the customer provides a malformed email address for Basic Message in for Customer Service
+	Given the Contact Us page is displayed
+	When the user selects Customer Service in the Subject Heading field
+	And the customer types malformed email into the email address field
+	And the user types a message into the message body field
+	And the customer submits the message
+	Then the message is not submitted successully
+	And the customer is informed of the email validation error
+    Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides an invalid email address for Order Query
+	Given the Contact Us page is displayed
+	When the user selects Customer Service in the Subject Heading field
+	And the customer types an empty string into the email address field
+	And the user types a message into the message body field
+	And the customer submits the message
+	Then the message is not submitted successully
+	And the customer is informed of the email validation error
+
+Scenario: The one where the customer provides a malformed email address for Order Query
+	Given the Contact Us page is displayed
+	When the customer completes a Customer Service Request with a malformed email address
+	And the customer submits the message
+	Then the user is presented with the correct validation message
+
+@manual@ignore
+Scenario: To check the structure and content of the Contact Us page
+   Given the Contact Us page is displayed
+   When user checks content for structure
+   And user validates it conforms with the wireframe
+   And user checks contents for spellings
+   Then user confirms that structure and content conforms with requirenment
+
