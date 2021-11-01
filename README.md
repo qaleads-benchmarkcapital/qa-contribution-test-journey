@@ -82,25 +82,25 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+It took me roughly between 2-3 hours.
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+Would probably has preffered to paramiterize my feature file, that will reduce going into the codes to make changes as the project gets bigger.
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 2 and 3 were quite very easy. As as the test was debugged it showed unable to locate the element, while in the refactoring task one can see that the actions in the Given, When, Then does not represent the user journey.
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+The use of conventional commit-hope I did it well.
 ```
 
 ### Submitting your test response
