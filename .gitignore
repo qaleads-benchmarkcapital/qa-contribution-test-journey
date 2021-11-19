@@ -386,3 +386,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Cypress
+cypress/**/*.png
+cypress/**/*.jpeg
+cypress/**/*.mp4
