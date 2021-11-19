@@ -1,0 +1,4 @@
+{
+    "searchField": "//*[@title='Search']",
+    "searchButton": "(//body//input[@value='Google Search'])[1]"
+}

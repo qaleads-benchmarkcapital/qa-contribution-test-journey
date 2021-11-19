@@ -1,0 +1,15 @@
+{
+        // tsconfig.json
+        "compilerOptions": {
+            "target": "es5",
+            "lib": [
+                "dom",
+                "dom.iterable",
+                "esnext"
+            ],
+        "include": [
+        "**/*.ts",
+        "cypress/plugins/index.js"  
+        ]
+    }
+}
