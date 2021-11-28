@@ -82,25 +82,25 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+I reqrote the tests in Cypress and did task 1. It all took about 3 hours.
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+The steps could have been more precise to make scenario variations easier. For example if the steps were as precise as "When a valid email address is entered" and "When a basic message is entered", then further variations of the scenarios could have re-used the Gherkin statements more. The solution I used re-uses page functions but adds some new Gherkin statements. 
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+I only did task 1. 
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Using Github. 
 ```
 
 ### Submitting your test response
