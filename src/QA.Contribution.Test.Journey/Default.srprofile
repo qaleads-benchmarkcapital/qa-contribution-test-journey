@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
-  <Settings projectName="QA.Contribution.Test.Journey" />
-  <Execution stopAfterFailures="0" retryFor="None" testSchedulingMode="Sequential" />
-  <TestAssemblyPaths>
-    <TestAssemblyPath>QA.Contribution.Test.Journe.dll</TestAssemblyPath>
+	<Settings projectName="QA.Contribution.Test.Journey" projectId="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}" outputFolder=".\Results" />
+	<Execution stopAfterFailures="0" retryFor="None" testSchedulingMode="Sequential" />
+	<TestAssemblyPaths>
+    <TestAssemblyPath>QA.Contribution.Test.Journey.dll</TestAssemblyPath>
   </TestAssemblyPaths>
 </TestProfile>
