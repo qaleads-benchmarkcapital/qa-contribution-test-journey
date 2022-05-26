@@ -43,12 +43,9 @@ Scenario: The one where the customer successfully submits a Technical Support Re
 @refactor
 Scenario: The one where the customer provides an invalid email address in a Techincal Support Request
 	Given the Contact Us page is displayed
-	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
-	And the user selects Webmaster in the Subject Heading field
+	When the customer completes a Techincal Support Request with a blank email address
 	And the customer submits the message
-	Then the message is not submitted successully
-	And the customer is informed of the email validation error
+	Then the user is presented with the correct validation message
 
 @failing
 Scenario: The one where the customer provides a malformed email address in a Techincal Support Request

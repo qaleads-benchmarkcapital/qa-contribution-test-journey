@@ -125,5 +125,13 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.SelectSubjectHeading();            
         }
+
+        [When(@"the customer completes a Techincal Support Request with a blank email address")]
+        public void WhenTheCustomerCompletesATechincalSupportRequestWithABlankEmailAddress()
+        {
+            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.EnterOrderReference();
+            _contactUsPage.EnterMessage();
+        }
     }
 }
