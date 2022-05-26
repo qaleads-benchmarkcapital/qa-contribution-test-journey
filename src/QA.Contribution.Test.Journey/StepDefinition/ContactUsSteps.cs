@@ -111,5 +111,19 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
+
+        [When(@"the customer enters a Basic Message with no destination set")]
+        public void WhenTheCustomerEntersABasicMessageWithNoDestinationSet()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterMessage();
+        }
+
+        [When(@"the customer completes a Technical Support Reqest with no message in the message field")]
+        public void WhenTheCustomerCompletesATechnicalSupportReqestWithNoMessageInTheMessageField()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading();            
+        }
     }
 }
