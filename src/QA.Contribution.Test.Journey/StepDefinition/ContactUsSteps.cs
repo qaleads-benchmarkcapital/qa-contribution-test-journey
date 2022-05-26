@@ -82,6 +82,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading();
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
+            _contactUsPage.ClickSend();
         }
         
         [Then(@"the message is successfully submitted")]
