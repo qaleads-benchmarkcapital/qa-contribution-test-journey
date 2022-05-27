@@ -45,23 +45,50 @@ Scenario: The one where the customer provides an invalid email address in a Tech
 	Given the Contact Us page is displayed
 	When the customer completes a Techincal Support Request with a blank email address
 	And the customer submits the message
-	Then the user is presented with the correct validation message
+	Then the user is presented with the correct <validationMessage> 
+	Examples:
+	| validationMessage      |
+	| Invalid email address. |
 
 @failing
 Scenario: The one where the customer provides a malformed email address in a Techincal Support Request
 	Given the Contact Us page is displayed
 	When the customer completes a Techincal Support Request with a malformed email address
 	And the customer submits the message
-	Then the user is presented with the correct validation message
+	Then the user is presented with the correct <validationMessage>
+	Examples:
+	| validationMessage      |
+	| Invalid email address. |
 
 	Scenario: The one where the customer does not select a destination
 	Given the Contact Us page is displayed
 	When  the customer enters a Basic Message with no destination set
 	And the customer submits the message
-	Then the user is presented with the correct validation message
+	Then the user is presented with the correct <validationMessage>
+	Examples:
+	| validationMessage                                      |
+	| Please select a subject from the list provided. |
+
 
 	Scenario: The one where the customer leaves that message field blank
 	Given the Contact Us page is displayed
 	When the customer completes a Technical Support Reqest with no message in the message field
 	And the customer submits the message
-	Then the user is presented with the correct validation message
+	Then the user is presented with the correct <validationMessage>
+	Examples:
+	| validationMessage				   |
+	| The message cannot be blank. |
+
+	Scenario: The one where the customer submits a blank form
+	Given the Contact Us page is displayed
+	When the customer submits the message
+	Then the user is presented with the correct <validationMessage>
+	Examples:
+	| validationMessage             |
+	| Invalid email address. |
+
+	Scenario: The one where the customer attaches a file
+	Given the Contact Us page is displayed
+	When the customer enters a Technical Support Request with a file attached
+	And the customer submits the message
+	Then the message is successfully submitted

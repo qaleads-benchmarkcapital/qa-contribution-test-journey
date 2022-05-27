@@ -53,7 +53,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechnicalSupportRequestMessage()
         {
             _contactUsPage.EnterEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterMessage();
         }
         
@@ -79,7 +79,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
             _contactUsPage.EnterInvalidEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
@@ -123,15 +123,34 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechnicalSupportReqestWithNoMessageInTheMessageField()
         {
             _contactUsPage.EnterEmailAddress();
-            _contactUsPage.SelectSubjectHeading();            
+            _contactUsPage.SelectSubjectHeading("Webmaster");            
         }
 
         [When(@"the customer completes a Techincal Support Request with a blank email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithABlankEmailAddress()
         {
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
+        }
+
+        [Then(@"the user is presented with the correct (.*)")]
+        public void ThenTheUserIsPresentedWithTheCorrect(string validationMessage)
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsTrue(message.Contains(validationMessage));
+
+        }
+
+        [When(@"the customer enters a Technical Support Request with a file attached")]
+        public void WhenTheCustomerEntersATechnicalSupportRequestWithAFileAttached()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
+            _contactUsPage.EnterMessage();
+            _contactUsPage.UploadFile();
+            System.Windows.Forms.SendKeys.SendWait(@"C:\Users\jenst\source\repos\qa-contribution-test-journey\Test file upload.docx");
+            System.Windows.Forms.SendKeys.SendWait("{Enter}");
         }
     }
 }
