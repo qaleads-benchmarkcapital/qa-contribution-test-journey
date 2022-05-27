@@ -149,8 +149,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterMessage();
             _contactUsPage.UploadFile();
-            System.Windows.Forms.SendKeys.SendWait(@"C:\Users\jenst\source\repos\qa-contribution-test-journey\Test file upload.docx");
-            System.Windows.Forms.SendKeys.SendWait("{Enter}");
+            _contactUsPage.SendUploadFileLocation();            
         }
     }
 }

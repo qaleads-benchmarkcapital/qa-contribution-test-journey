@@ -103,5 +103,13 @@ namespace QA.Contribution.Test.Journey.Page
             var uploadFile = Driver.GetClickableElement(By.XPath(_chooseFileLocator));
             uploadFile.Click();            
         }
+        public void SendUploadFileLocation()
+
+        {
+            string filePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folderPath = System.IO.Path.GetDirectoryName(filePath);
+            System.Windows.Forms.SendKeys.SendWait(folderPath + "\\Test upload Data\\Test file upload.docx");
+            System.Windows.Forms.SendKeys.SendWait("{Enter}");
+        }
     }
 }
