@@ -82,25 +82,25 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
-```
+Task 1 took me about 3 hours and the other 2 tasks combined took me 1 hour. Task 4 5 minutes
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+The soultion was set out well and easy to get to grips with. The one thing I would have done different and did refactor was the error message validation 
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 2 refactoring the Gherkin was the easiest once I realised I just needed to confese the steps in to a new one.
+
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Task 1 I found creating the test for the upload file section the hardest getting the file location to be dynamic so anyone running the tests can use it.
 ```
 
 ### Submitting your test response
