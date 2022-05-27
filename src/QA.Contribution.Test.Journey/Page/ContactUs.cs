@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Windows.Forms;
 
 using TechTalk.SpecFlow;
 
@@ -17,7 +18,7 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _submitMessageLocator = "//*[@id='submitMessage']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
         private readonly string _successLocator = "//*[@class='alert alert-success']";
-
+        private readonly string _chooseFileLocator = "//div[@class='uploader']";
         public void Navigate()
         {
             Driver.Url = Configuration.Get()[ConfigurationConstants.BaseUrl];
@@ -95,6 +96,20 @@ namespace QA.Contribution.Test.Journey.Page
         {
             var successAlert = Driver.GetClickableElement(By.XPath(_successLocator));
             return successAlert.Text;
+        }
+
+        public void UploadFile()
+        {           
+            var uploadFile = Driver.GetClickableElement(By.XPath(_chooseFileLocator));
+            uploadFile.Click();            
+        }
+        public void SendUploadFileLocation()
+
+        {
+            string filePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folderPath = System.IO.Path.GetDirectoryName(filePath);
+            System.Windows.Forms.SendKeys.SendWait(folderPath + "\\Test upload Data\\Test file upload.docx");
+            System.Windows.Forms.SendKeys.SendWait("{Enter}");
         }
     }
 }

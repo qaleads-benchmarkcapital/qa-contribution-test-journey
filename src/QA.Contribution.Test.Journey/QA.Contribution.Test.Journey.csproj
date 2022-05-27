@@ -2,7 +2,17 @@
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+	    <WrapperTool>tlbimp</WrapperTool>
+	    <VersionMinor>4</VersionMinor>
+	    <VersionMajor>2</VersionMajor>
+	    <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+	  </COMReference>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />

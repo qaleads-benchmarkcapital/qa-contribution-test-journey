@@ -53,7 +53,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechnicalSupportRequestMessage()
         {
             _contactUsPage.EnterEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterMessage();
         }
         
@@ -79,7 +79,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
             _contactUsPage.EnterInvalidEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
@@ -110,6 +110,46 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
+        }
+
+        [When(@"the customer enters a Basic Message with no destination set")]
+        public void WhenTheCustomerEntersABasicMessageWithNoDestinationSet()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterMessage();
+        }
+
+        [When(@"the customer completes a Technical Support Reqest with no message in the message field")]
+        public void WhenTheCustomerCompletesATechnicalSupportReqestWithNoMessageInTheMessageField()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading("Webmaster");            
+        }
+
+        [When(@"the customer completes a Techincal Support Request with a blank email address")]
+        public void WhenTheCustomerCompletesATechincalSupportRequestWithABlankEmailAddress()
+        {
+            _contactUsPage.SelectSubjectHeading("Webmaster");
+            _contactUsPage.EnterOrderReference();
+            _contactUsPage.EnterMessage();
+        }
+
+        [Then(@"the user is presented with the correct (.*)")]
+        public void ThenTheUserIsPresentedWithTheCorrect(string validationMessage)
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsTrue(message.Contains(validationMessage));
+
+        }
+
+        [When(@"the customer enters a Technical Support Request with a file attached")]
+        public void WhenTheCustomerEntersATechnicalSupportRequestWithAFileAttached()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading("Webmaster");
+            _contactUsPage.EnterMessage();
+            _contactUsPage.UploadFile();
+            _contactUsPage.SendUploadFileLocation();            
         }
     }
 }
