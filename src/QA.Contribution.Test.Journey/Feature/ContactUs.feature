@@ -55,3 +55,22 @@ Scenario: The one where the customer provides a malformed email address in a Tec
 	Given the Contact Us page is displayed
 	When the customer completes a Techincal Support Request with a malformed email address
 	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer submits an Order Query with an empty message body
+	Given the Contact Us page is displayed
+	When the customer completes a Order Query with empty message body
+	And the customer submits the message
+	Then the user is presented with the validation message: 'The message cannot be blank'
+
+@manual @ignore
+Scenario: The one where the customer submits a message with an attachment that is too large
+	Given the Contact Us page is displayed
+	When the customer submits a Technical Support Request message with an attachment that is too large
+	Then the message is not submitted successully
+
+@manual @ignore
+Scenario: The one where the customer submits a message with a message body that is too large
+	Given the Contact Us page is displayed
+	When the customer submits an Order Query message with a message body that is too large
+	Then the website displays an error 500
+

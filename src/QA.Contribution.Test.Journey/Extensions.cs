@@ -37,6 +37,12 @@ namespace QA.Contribution.Test.Journey
             .Until(ExpectedConditions.ElementToBeClickable(by));
         }
 
+        public static IWebElement GetExistingElement(this IWebDriver driver, By by)
+        {
+            return new WebDriverWait(driver, TimeSpan.FromSeconds(120))
+            .Until(ExpectedConditions.ElementExists(by));
+        }
+
         public static SelectElement GetSelectElement(this IWebDriver driver, By by)
         {
             return new SelectElement(driver.FindElement(by));

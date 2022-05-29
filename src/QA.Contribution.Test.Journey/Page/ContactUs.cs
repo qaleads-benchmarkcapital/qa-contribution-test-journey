@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
-
+using System;
+using System.IO;
 using TechTalk.SpecFlow;
 
 namespace QA.Contribution.Test.Journey.Page
@@ -17,6 +18,7 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _submitMessageLocator = "//*[@id='submitMessage']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
         private readonly string _successLocator = "//*[@class='alert alert-success']";
+        private readonly string _attachFileLocator = "//*[@id='fileUpload']";
 
         public void Navigate()
         {
@@ -95,6 +97,23 @@ namespace QA.Contribution.Test.Journey.Page
         {
             var successAlert = Driver.GetClickableElement(By.XPath(_successLocator));
             return successAlert.Text;
+        }
+
+        public void ClearMessage()
+        {
+            var messageField = Driver.GetClickableElement(By.XPath(_messageLocator));
+            messageField.Clear();
+        }
+
+        public void AttachFile()
+        {
+            var uploadFileName = "TestUpload.txt";
+            var projectFolder = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            var filePath = Path.Combine(projectFolder, uploadFileName);
+
+            var attachFileField = Driver.GetExistingElement(By.XPath(_attachFileLocator));
+            attachFileField.SendKeys(filePath);
+
         }
     }
 }

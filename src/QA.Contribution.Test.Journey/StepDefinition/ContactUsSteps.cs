@@ -55,6 +55,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.SelectSubjectHeading();
             _contactUsPage.EnterMessage();
+            _contactUsPage.AttachFile();
         }
         
         [When(@"the customer types an empty string into the email address field")]
@@ -110,6 +111,21 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
+        }
+
+        [Then(@"the user is presented with the validation message: '(.*)'")]
+        public void ThenTheUserIsPresentedWithTheValidationMessage_(string expectedText)
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsTrue(message.Contains(expectedText));
+        }
+
+        [When(@"the customer completes a Order Query with empty message body")]
+        public void WhenTheCustomerCompletesAOrderQueryWithEmptyMessageBody()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.EnterOrderReference();
         }
     }
 }
