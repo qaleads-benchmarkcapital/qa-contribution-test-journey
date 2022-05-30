@@ -51,7 +51,8 @@ Scenario: The one where the customer provides an invalid email address in a Tech
 Scenario: The one where the customer provides a malformed email address in a Techincal Support Request
 	Given the Contact Us page is displayed
 	When the customer completes a Techincal Support Request with a malformed email address
-	Then the user is presented with the correct validation message
+	And the customer submits the message
+	Then the user is presented with the validation message: 'Invalid email address'
 
 Scenario: The one where the customer submits an Order Query with an empty message body
 	Given the Contact Us page is displayed
