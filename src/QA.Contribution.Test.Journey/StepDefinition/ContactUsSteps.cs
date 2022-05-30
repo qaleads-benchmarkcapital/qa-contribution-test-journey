@@ -11,6 +11,8 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         private Landing _landingPage;
         private ContactUs _contactUsPage;
 
+        private const string _webMaster = "Webmaster";
+
         public ContactUsSteps(ScenarioContext scenarioContext)
         {
             _landingPage = new Landing(scenarioContext);
@@ -29,7 +31,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When(@"the customer enters a Basic Message intended for (.*)")]
         public void WhenTheCustomerEntersABasicMessageIntendedForCustomerServices(string subjectHeading)
         {
-            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterValidEmailAddress();
             _contactUsPage.SelectSubjectHeading(subjectHeading);
             _contactUsPage.EnterMessage();
         }
@@ -43,7 +45,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When(@"the customer completes a Order Query message")]
         public void WhenTheCustomerCompletesAOrderQueryMessage()
         {
-            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterValidEmailAddress();
             _contactUsPage.SelectSubjectHeading();
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
@@ -52,7 +54,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When(@"the customer completes a Technical Support Request message")]
         public void WhenTheCustomerCompletesATechnicalSupportRequestMessage()
         {
-            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterValidEmailAddress();
             _contactUsPage.SelectSubjectHeading();
             _contactUsPage.EnterMessage();
             _contactUsPage.AttachFile();
@@ -63,28 +65,30 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.ClearEmailAddress();
         }
-        
+
+        [When(@"the customer completes a Techincal Support Request with an invalid email address")]
+        public void WhenTheCustomerCompletesATechincalSupportRequestWithAnInvalidEmailAddress()
+        {
+            _contactUsPage.EnterInvalidEmailAddress();
+            _contactUsPage.SelectSubjectHeading(_webMaster);
+            _contactUsPage.EnterMessage();
+        }
+
         [When(@"the user types a message into the message body field")]
         public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
         {
             _contactUsPage.EnterMessage();
         }
         
-        [When(@"the user selects Webmaster in the Subject Heading field")]
-        public void WhenTheUserSelectsWebmasterInTheSubjectHeadingField()
-        {
-            _contactUsPage.SelectSubjectHeading("Webmaster");
-        }
-        
         [When(@"the customer completes a Techincal Support Request with a malformed email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
-            _contactUsPage.EnterInvalidEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.EnterMalformedEmailAddress();
+            _contactUsPage.SelectSubjectHeading(_webMaster);
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
-        
+
         [Then(@"the message is successfully submitted")]
         public void ThenTheMessageIsSuccessfullySubmitted()
         {
@@ -94,13 +98,6 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         
         [Then(@"the message is not submitted successully")]
         public void ThenTheMessageIsNotSubmittedSuccessully()
-        {
-            var message = _contactUsPage.GetErrorMessage();
-            Assert.IsFalse(string.IsNullOrEmpty(message));
-        }
-        
-        [Then(@"the customer is informed of the email validation error")]
-        public void ThenTheCustomerIsInformedOfTheEmailValidationError()
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
@@ -123,7 +120,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When(@"the customer completes a Order Query with empty message body")]
         public void WhenTheCustomerCompletesAOrderQueryWithEmptyMessageBody()
         {
-            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterValidEmailAddress();
             _contactUsPage.SelectSubjectHeading();
             _contactUsPage.EnterOrderReference();
         }

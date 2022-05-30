@@ -32,22 +32,24 @@ namespace QA.Contribution.Test.Journey.Page
             return Driver.Url;
         }
 
-        public string EnterEmailAddress()
+        public string EnterValidEmailAddress()
         {
             var email = Faker.Internet.Email();
-            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
-            emailField.Clear();
-            emailField.SendKeys(email);
+            EnterEmailAddress(email);
             return email;
         }
 
-        public string EnterInvalidEmailAddress()
+        public string EnterMalformedEmailAddress()
         {
             var email = Faker.Lorem.GetFirstWord();
-            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
-            emailField.Clear();
-            emailField.SendKeys(email);
+            EnterEmailAddress(email);
             return email;
+        }
+
+        public void EnterInvalidEmailAddress()
+        {
+            var email = string.Empty;
+            EnterEmailAddress(email);
         }
 
         public void ClearEmailAddress()
@@ -114,6 +116,13 @@ namespace QA.Contribution.Test.Journey.Page
             var attachFileField = Driver.GetExistingElement(By.XPath(_attachFileLocator));
             attachFileField.SendKeys(filePath);
 
+        }
+
+        private void EnterEmailAddress(string email)
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
+            emailField.Clear();
+            emailField.SendKeys(email);
         }
     }
 }
