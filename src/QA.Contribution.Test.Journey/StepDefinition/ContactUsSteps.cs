@@ -1,7 +1,6 @@
-﻿using System;
-using TechTalk.SpecFlow;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QA.Contribution.Test.Journey.Page;
+using TechTalk.SpecFlow;
 
 namespace QA.Contribution.Test.Journey.StepDefinition
 {
@@ -12,6 +11,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         private ContactUs _contactUsPage;
 
         private const string _webMaster = "Webmaster";
+        private const string _customerService = "Customer service";
 
         public ContactUsSteps(ScenarioContext scenarioContext)
         {
@@ -46,7 +46,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         public void WhenTheCustomerCompletesAOrderQueryMessage()
         {
             _contactUsPage.EnterValidEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading(_customerService);
             _contactUsPage.EnterOrderReference();
             _contactUsPage.EnterMessage();
         }
@@ -60,12 +60,6 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.AttachFile();
         }
         
-        [When(@"the customer types an empty string into the email address field")]
-        public void WhenTheCustomerTypesAnEmptyStringIntoTheEmailAddressField()
-        {
-            _contactUsPage.ClearEmailAddress();
-        }
-
         [When(@"the customer completes a Techincal Support Request with an invalid email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAnInvalidEmailAddress()
         {
@@ -117,11 +111,11 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsTrue(message.Contains(expectedText));
         }
 
-        [When(@"the customer completes a Order Query with empty message body")]
-        public void WhenTheCustomerCompletesAOrderQueryWithEmptyMessageBody()
+        [When(@"the customer completes an Order Query with empty message body")]
+        public void WhenTheCustomerCompletesAnOrderQueryWithEmptyMessageBody()
         {
             _contactUsPage.EnterValidEmailAddress();
-            _contactUsPage.SelectSubjectHeading();
+            _contactUsPage.SelectSubjectHeading(_customerService);
             _contactUsPage.EnterOrderReference();
         }
     }

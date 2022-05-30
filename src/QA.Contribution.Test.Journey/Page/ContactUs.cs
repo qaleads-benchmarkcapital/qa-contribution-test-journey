@@ -115,7 +115,6 @@ namespace QA.Contribution.Test.Journey.Page
 
             var attachFileField = Driver.GetExistingElement(By.XPath(_attachFileLocator));
             attachFileField.SendKeys(filePath);
-
         }
 
         private void EnterEmailAddress(string email)

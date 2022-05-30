@@ -56,7 +56,7 @@ Scenario: The one where the customer provides a malformed email address in a Tec
 
 Scenario: The one where the customer submits an Order Query with an empty message body
 	Given the Contact Us page is displayed
-	When the customer completes a Order Query with empty message body
+	When the customer completes an Order Query with empty message body
 	And the customer submits the message
 	Then the user is presented with the validation message: 'The message cannot be blank'
 
