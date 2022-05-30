@@ -82,25 +82,29 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+Task 1	~3hrs
+
+Task 2	~30mins (I thought a bit about whether to just change the wording of 'type an empty string' to 'omit email address' or similar. But because the glossary states: "Invalid Email Address -  An empty string", I went with that.)
+
+Task 3	~1min 
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+I would have used Ids for the element locators instead of using xpath, where ids are available.
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 3: fixing the failing scenario. Having familiarised myself with the code, it was immediately clear that the 'submits the message' step was missing.
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Task 1: adding new scenarios. I spent some time deciding just how far to go, which extra scenarios would be valid to include for the purposes of this test, and trying out manually the negative scenarios that I did add into the feature file. I didn't go through all possible combinations of negative scenarios here (e.g. empty message body for each of the message types, put an order ref on a technical support request...). In a real situation I'd want to check with the Product Owner, or users, if these would be valid cases.
 ```
 
 ### Submitting your test response
