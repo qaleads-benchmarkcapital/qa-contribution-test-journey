@@ -1,4 +1,0 @@
-{
-    "baseUrl": "https://google.com",
-    "agreeButton": "//*[text()='I agree']"
-}

@@ -25,7 +25,7 @@ Please see the Feature File <name> there are
 ![contactUs](/contactUs.png "Contact Us user interface")
 
 #### Address :houses:
-http://automationpractice.com/index.php?controller=contact 
+https://automationintesting.online/
 
 ### Code in GitHub
 We have provided an automation solution in a GitHub repository that provides you with:
@@ -39,7 +39,7 @@ https://github.com/qaleads-benchmarkcapital/qa-contribution-test-journey
 
 ### Toolbox
 The solution uses `Selenium`, `Specflow`, `SpecFlow runner` and `C# / .net core 3.1`.
-We think it will be best if you use a version of `Visual Studio 2019` together with `SpecFlow for Visual Studio 2019` extension to complete this technical test.
+We think it will be best if you use a version of `Visual Studio 2019/2022` together with `SpecFlow for Visual Studio 2019/2022` extension to complete this technical test.
 We recommend using `GitHub Desktop` to work with the Code in `GitHub`.
 
 ### Existing Scenarios
@@ -52,7 +52,7 @@ Please examine the Feature File carefully, you need to understand not just the s
 
 ### Tasks
 
-#### Task 1 : Add an Additional Scenario to the Feature File :floppy_disk:
+#### Task 1: Add Additional Scenarios to the Feature File :floppy_disk:
 We have omitted to add all scenarios in the Feature File `ContactUs.feature`
 We would like you to add additional Scenarios, the tests you would conduct manuallay tag with `@manual` & `@ignore`.
 In adding your additional scenario(s) we encourage you to re-use any existing Steps / Step Implementations, but if you do re-use (and refactor) any existing Steps / Step Implementations please make sure that in doing so that all of the existing Scenarios still Pass!
@@ -111,19 +111,8 @@ In order for you to submit  your changes,  you will need to :
 1.	Clone the repository mentioned in Code in `GitHub`
 2.	Create a new branch in the repository for your changes, name the branch you create using the [this](#branch-name) naming convention 
 3.	Commit all changes you make in completing The Tasks to the new branch you have created
-4.	Once you have committed all of your changes to your branch, create a Release using the following meta data :
-
-| Meta data                                     | Description                                                                                                                               |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Tag: `<your_name>.<dd>.<mm>.<yyyy>.Version.<n>` | e.g. `Emma-Jones.27.09.2021.Version.1`                                                                                                    |
-| Target                                        | the new branch you created                                                                                                                |
-| Release Title                                 | Use the same value you used in the Tag above                                                                                              |
-| Description                                   | Provide an overview of the changes you made here, call out the tasks that you completed in the changes you committed that are contained - |
-|                                               | in the branch on which you have targeted this release                                                                                     |
-| Pre-Release                                   | Set to True                                                                                                                               |
-
-5. Push your commited changes to a **new** remote branch that you have created
-6. Raise a **new** Pull Request in `GitHub` so that **your** technical test submission can be reviewed :tada:
+4. Push your commited changes to a **new** remote branch that you have created
+5. Raise a **new** Pull Request in `GitHub` so that **your** technical test submission can be reviewed :tada:
 
 #### Branch name 
 

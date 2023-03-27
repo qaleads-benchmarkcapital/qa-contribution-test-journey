@@ -11,18 +11,13 @@ namespace QA.Contribution.Test.Journey.Page
         }
 
         private readonly string _emailLocator = "//*[@id='email']";
-        private readonly string _subjectHeadingLocator = "//*[@id='id_contact']";
-        private readonly string _orderRefrenceLocator = "//*[@id='id_order']";
-        private readonly string _messageLocator = "//*[@id='message']";
-        private readonly string _submitMessageLocator = "//*[@id='submitMessage']";
+        private readonly string _messageLocator = "//*[@id='description']";
+        private readonly string _submitMessageLocator = "//*[@id='submitContact']";
+        private readonly string _subjectLocator = "//*[@id='subject']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
-        private readonly string _successLocator = "//*[@class='alert alert-success']";
-
-        public void Navigate()
-        {
-            Driver.Url = Configuration.Get()[ConfigurationConstants.BaseUrl];
-            Driver.Navigate();
-        }
+        private readonly string _successLocator = "//*[text()='as soon as possible.']";
+        private readonly string _nameLocator = "//*[@id='name']";
+        private readonly string _phoneLocator = "//*[@id='phone']";
 
         public string ClickSend()
         {
@@ -54,15 +49,6 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.Clear();
         }
 
-        public string EnterOrderReference()
-        {
-            var orderReference = Faker.Lorem.GetFirstWord();
-            var orderReferenceField = Driver.GetClickableElement(By.XPath(_orderRefrenceLocator));
-            orderReferenceField.Clear();
-            orderReferenceField.SendKeys(orderReference);
-            return orderReference;
-        }
-
         public string EnterMessage()
         {
             var message = Faker.Lorem.Paragraph();
@@ -70,19 +56,6 @@ namespace QA.Contribution.Test.Journey.Page
             messageField.Clear();
             messageField.SendKeys(message);
             return message;
-        }
-
-        public void SelectSubjectHeading(string subjectHeading = "")
-        {
-            string[] subjects = {"Customer service", "Webmaster"};
- 
-            if (string.IsNullOrEmpty(subjectHeading))
-            {
-                subjectHeading = subjects[Faker.RandomNumber.Next(0, 1)];
-            }
-
-            var selectSubjectHeading = Driver.GetSelectElement(By.XPath(_subjectHeadingLocator));
-            selectSubjectHeading.SelectByText(subjectHeading);
         }
 
         public string GetErrorMessage()
@@ -95,6 +68,33 @@ namespace QA.Contribution.Test.Journey.Page
         {
             var successAlert = Driver.GetClickableElement(By.XPath(_successLocator));
             return successAlert.Text;
+        }
+
+        public string EnterPhone()
+        {
+            var phoneNumber = Faker.Phone.Number();
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+            phoneField.SendKeys(phoneNumber);
+            return phoneNumber;
+        }
+
+        public string EnterName()
+        {
+            var name = Faker.Name.FullName();
+            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            nameField.Clear();
+            nameField.SendKeys(name);
+            return name;
+        }
+
+        public string EnterSubject()
+        {
+            var name = Faker.Lorem.GetFirstWord();
+            var nameField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+            nameField.Clear();
+            nameField.SendKeys(name);
+            return name;
         }
     }
 }

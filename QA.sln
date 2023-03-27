@@ -1,9 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA.Contribution.Test.Journey", "src\QA.Contribution.Test.Journey\QA.Contribution.Test.Journey.csproj", "{1137653E-48E7-4982-9531-12DCE81FAEA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QA.Contribution.Test.Journey", "src\QA.Contribution.Test.Journey\QA.Contribution.Test.Journey.csproj", "{1137653E-48E7-4982-9531-12DCE81FAEA2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{80815DA1-BE72-4D79-9616-655B1E54D321}"
+	ProjectSection(SolutionItems) = preProject
+		contactUs.png = contactUs.png
+		failingScenario.png = failingScenario.png
+		featureFile.png = featureFile.png
+		glossaryDescription.png = glossaryDescription.png
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
