@@ -19,7 +19,7 @@ We think this document will provide you with all the information you should need
 If you have any queries, please reach out to your agent who will pass queries on to us.
 
 ### Application Under Test
-For this technical test,  a Contact Form that many users of e-commerce websites should be familiar with has been chosen as the Application Under Test.
+For this technical test,  a Contact Form that many users should be familiar with has been chosen as the Application Under Test.
 Please see the Feature File <name> there are
 
 ![contactUs](/contactUs.png "Contact Us user interface")
@@ -58,6 +58,8 @@ We would like you to add additional Scenarios, the tests you would conduct manua
 In adding your additional scenario(s) we encourage you to re-use any existing Steps / Step Implementations, but if you do re-use (and refactor) any existing Steps / Step Implementations please make sure that in doing so that all of the existing Scenarios still Pass!
 If you can’t re-use any of the existing Steps / Step Implementations, you will need to add your own Steps / Step Implementations, in doing so please follow the patterns in the existing Scenarios / Steps / Step Implementations as closely as you can. 
 Consistency is important to readability which in turn help keep the maintenance costs down (as well as driving up reliability).
+
+Please consider these [guidelines](https://techbeacon.com/app-dev-testing/better-behavior-driven-development-4-rules-writing-good-gherkin?utm_content=buffer3bd8d&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) 
 
 #### Task 2: Refactor an Existing Scenario in the Feature File :hammer_and_wrench:
 In the Feature File `ContactUs.feature` there are a number of tests already implemented:
