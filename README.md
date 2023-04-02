@@ -85,26 +85,26 @@ Please edit `README.md` with answers to the following questions:
 
 ```
 <Insert your answer here>
-```
+``The`first scenario took and step definition  took me 45mins and the other scenarios took more than an hour to complete. 
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
 <Insert your answer here>
-```
+```Some of the elements where xpath where used would have been prefered if they where ids,
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
 <Insert your answer here>
-```
+```the postive scenarios where easy .
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
 <Insert your answer here>
 ```
-
+The failing scenario because the alert is throwing no such element error it could not be found  
 ### Submitting your test response
 We would like you to demonstrate your ability to use `GIT` when submitting your changes in completing The Tasks in this Technical Brief.
 It is very important that you demonstrate your competency in using `GIT` and you should treat how you submit your changes as an **important** part of the test.

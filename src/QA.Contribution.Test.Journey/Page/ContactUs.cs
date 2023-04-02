@@ -49,6 +49,15 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.Clear();
         }
 
+        public void ClearPhoneNumber()
+        {
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+        }
+
+
+
+
         public string EnterMessage()
         {
             var message = Faker.Lorem.Paragraph();

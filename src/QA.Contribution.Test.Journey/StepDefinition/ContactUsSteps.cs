@@ -44,7 +44,18 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.ClearEmailAddress();
         }
-        
+
+
+        [When("the customer types an empty integer into the phone field")]
+        public void WhenTheCustomerTypesAnEmptyIntegerIntoThePhoneField()
+        {
+            _contactUsPage.ClearPhoneNumber();
+        }
+
+
+
+
+
         [When("the user types a message into the message body field")]
         public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
         {
