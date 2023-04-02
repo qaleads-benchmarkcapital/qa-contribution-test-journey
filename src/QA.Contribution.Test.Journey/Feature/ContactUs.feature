@@ -20,6 +20,23 @@ Scenario: The one where the customer successfully submits a Basic Message
 	And the customer submits the message
 	Then the message is successfully submitted
 
+
+	Scenario: The one where the customer provides blank Phone Number
+	Given the Contact Us page is displayed
+	When the customer enters a Basic Message
+	When the customer types an empty integer into the phone field
+    And  the customer submits the message 
+	Then the message is not submitted successfully 
+
+@manual  @ignore
+Scenario: The one where the phone number is more than 21 character lenght.
+	Given the Contact Us page is displayed
+	When the customer enters a Basic Message
+	When the customer enters phone number above 21 character lenght 
+    And the customer submits the message 
+	Then message display Phone must be between 11 and 21 character
+	
+
 @refactor
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
