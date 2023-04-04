@@ -53,8 +53,9 @@ Please examine the Feature File carefully, you need to understand not just the s
 ### Tasks
 
 #### Task 1: Add Additional Scenarios to the Feature File :floppy_disk:
-We have omitted to add all scenarios in the Feature File `ContactUs.feature`
-We would like you to add additional Scenarios, the tests you would conduct manuallay tag with `@manual` & `@ignore`.
+We have omitted to add all scenario(s) in the Feature File `ContactUs.feature`
+We would like you to add **as many** additional Scenario(s) **as you can think of or would test yourself in your day job**.  The tests you would conduct manuallay tag with `@manual` & `@ignore`, the tests that are feasible to write test automation code for please implement. Please add **as much code as you can** to demonstrate your skills & knowledge. Its important that you give us insight into your overall experience & understanding of the feature under test!
+
 In adding your additional scenario(s) we encourage you to re-use any existing Steps / Step Implementations, but if you do re-use (and refactor) any existing Steps / Step Implementations please make sure that in doing so that all of the existing Scenarios still Pass!
 If you can’t re-use any of the existing Steps / Step Implementations, you will need to add your own Steps / Step Implementations, in doing so please follow the patterns in the existing Scenarios / Steps / Step Implementations as closely as you can. 
 Consistency is important to readability which in turn help keep the maintenance costs down (as well as driving up reliability).
