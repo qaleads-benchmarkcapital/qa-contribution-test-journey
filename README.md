@@ -138,5 +138,3 @@ feature/account-access-journey
 **Notes:** :black_nib:
 - We would like you to use the conventional commits approach to commit comments when committing changes [Convential commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 - We encourage you to commit changes little and often, at the minimum we would like to see different commits with appropriate commit messages using _conventional_ _commits_ for each of the tasks you undertake
-- If you commit changes to your branch after you have created a Release, then please create a further release, incrementing the Version in the Tag and Release Title with additional comment in the Description that provides an overview of what changes are contained in the further Release.
-
