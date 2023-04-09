@@ -85,25 +85,25 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+First task took me around 1.5 hours and other tests took around 30 mins each
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+I would have written the field entry methods with parameters, so that customer can enter their preferred data
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 3, after looking at the scenario, I reliased that user expecting error without submitting form. so just need to add 1 step
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Task 1, as it required to add new steps, steps definitions and new methods in base file.
 ```
 
 ### Submitting your test response

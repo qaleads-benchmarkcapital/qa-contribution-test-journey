@@ -96,5 +96,11 @@ namespace QA.Contribution.Test.Journey.Page
             nameField.SendKeys(name);
             return name;
         }
+
+        public void ClearName()
+        {
+            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            nameField.Clear();
+        }
     }
 }

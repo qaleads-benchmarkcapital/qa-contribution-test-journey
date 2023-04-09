@@ -85,5 +85,36 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.EnterMessage();
         }
+
+        [When(@"the customer enter an empty string into the name field")]
+        public void WhenTheCustomerEnterAnEmptyStringIntoTheNameField()
+        {
+            _contactUsPage.ClearName();
+        }
+
+        [When(@"the customer enters valid email address")]
+        public void WhenTheCustomerEntersValidEmailAddress()
+        {
+            _contactUsPage.EnterEmailAddress(); 
+        }
+
+        [When(@"the customer enters valid phone number")]
+        public void WhenTheCustomerEntersValidPhoneNumber()
+        {
+            _contactUsPage.EnterPhone();
+        }
+
+        [When(@"the customer enters valid subject")]
+        public void WhenTheCustomerEntersValidSubject()
+        {
+            _contactUsPage.EnterSubject();
+        }
+
+        [Then(@"the customer is informed of the name validation error")]
+        public void ThenTheCustomerIsInformedOfTheNameValidationError()
+        {
+            Assert.AreEqual(_contactUsPage.GetErrorMessage(),"Name may not be blank");
+        }
+
     }
 }

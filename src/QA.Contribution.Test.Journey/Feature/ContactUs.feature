@@ -23,14 +23,41 @@ Scenario: The one where the customer successfully submits a Basic Message
 @refactor
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
-	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
+	When the customer enters a Basic Message
+	And the customer types an empty string into the email address field
 	And the customer submits the message
-	Then the message is not submitted successfully
-	And the customer is informed of the email validation error
+	Then the customer is informed of the email validation error
 
 @failing
 Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message with a malformed email address
+	And the customer submits the message
 	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer leave name field empty
+	Given the Contact Us page is displayed
+	When the customer enter an empty string into the name field
+	And the customer enters valid email address
+	And the customer enters valid phone number
+	And the customer enters valid subject
+	And the user types a message into the message body field
+	And the customer submits the message
+	Then the customer is informed of the name validation error
+
+@manual @ignore
+Scenario: The one where the customer enter less then 5 characters in subject field
+	Given the Contact Us page is displayed
+	When the customer enters a Basic Message
+	And the customer enters less then 5 characters in subject field
+	And the customer submits the message
+	Then the customer is informed of the subject validation error
+
+@manual @ignore
+Scenario: The one where the customer enter more then 21 characters in phone number field
+	Given the Contact Us page is displayed
+	When the customer enters a Basic Message
+	And the customer enters more than 21 characters in phone number field
+	And the customer submits the message
+	Then the customer is informed of the phone number validation error
+
