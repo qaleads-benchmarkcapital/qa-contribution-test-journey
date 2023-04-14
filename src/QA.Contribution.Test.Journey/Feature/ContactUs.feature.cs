@@ -26,7 +26,7 @@ namespace QA.Contribution.Test.Journey.Feature
 	Description:
 	A Contact Form that allows customers to send a message to customer servies.
 	In submitting a message the customer uses the subject line to indicate the message title.
-	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully to either Destination.
+	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully.
 	In submitting a message, the customer can provide a valid 'Phone' number.
 	
 	Glossary:
@@ -54,7 +54,7 @@ namespace QA.Contribution.Test.Journey.Feature
 	Description:
 	A Contact Form that allows customers to send a message to customer servies.
 	In submitting a message the customer uses the subject line to indicate the message title.
-	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully to either Destination.
+	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully.
 	In submitting a message, the customer can provide a valid 'Phone' number.
 	
 	Glossary:
@@ -223,6 +223,9 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the customer completes a Basic Message with a malformed email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 36
+ testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 37
  testRunner.Then("the user is presented with the correct validation message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

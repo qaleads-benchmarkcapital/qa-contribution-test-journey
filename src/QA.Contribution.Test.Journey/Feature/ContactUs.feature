@@ -33,4 +33,5 @@ Scenario: The one where the customer provides an invalid email address
 Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message with a malformed email address
+	And the customer submits the message
 	Then the user is presented with the correct validation message
