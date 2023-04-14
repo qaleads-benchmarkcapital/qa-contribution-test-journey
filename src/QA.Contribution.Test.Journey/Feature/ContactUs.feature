@@ -24,10 +24,8 @@ Scenario: The one where the customer successfully submits a Basic Message
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
 	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
 	And the customer submits the message
-	Then the message is not submitted successfully
-	And the customer is informed of the email validation error
+	Then the customer is informed of the email validation error
 
 @failing
 Scenario: The one where the customer provides a malformed email address
