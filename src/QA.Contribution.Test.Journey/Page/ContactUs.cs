@@ -25,39 +25,6 @@ namespace QA.Contribution.Test.Journey.Page
             return Driver.Url;
         }
 
-        public string EnterEmailAddress()
-        {
-            var email = Faker.Internet.Email();
-            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
-            emailField.Clear();
-            emailField.SendKeys(email);
-            return email;
-        }
-
-        public string EnterInvalidEmailAddress()
-        {
-            var email = Faker.Lorem.GetFirstWord();
-            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
-            emailField.Clear();
-            emailField.SendKeys(email);
-            return email;
-        }
-
-        public void ClearEmailAddress()
-        {
-            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
-            emailField.Clear();
-        }
-
-        public string EnterMessage()
-        {
-            var message = Faker.Lorem.Paragraph();
-            var messageField = Driver.GetClickableElement(By.XPath(_messageLocator));
-            messageField.Clear();
-            messageField.SendKeys(message);
-            return message;
-        }
-
         public string GetErrorMessage()
         {
             var errorAlert = Driver.GetClickableElement(By.XPath(_errorLocator));
@@ -70,31 +37,92 @@ namespace QA.Contribution.Test.Journey.Page
             return successAlert.Text;
         }
 
-        public string EnterPhone()
+        public string EnterEmailAddress()
         {
-            var phoneNumber = Faker.Phone.Number();
-            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
-            phoneField.Clear();
-            phoneField.SendKeys(phoneNumber);
-            return phoneNumber;
+            var email = Faker.Internet.Email();
+           EnterEmailAddress(email);
+            return email;
+        }
+
+        public string EnterEmailAddress(string email)
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
+            emailField.Clear();
+            emailField.SendKeys(email);
+            return email;
+        }
+
+        public string EnterInvalidEmailAddress()
+        {
+            var email = Faker.Lorem.GetFirstWord();
+            EnterEmailAddress(email);
+            return email;
+        }
+
+        public void ClearEmailAddress()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
+            emailField.Clear();
         }
 
         public string EnterName()
         {
             var name = Faker.Name.FullName();
+            EnterName(name);
+            return name;
+        }
+
+        public string EnterName(string name)
+        {
             var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
             nameField.Clear();
             nameField.SendKeys(name);
             return name;
         }
 
+        public string EnterPhone()
+        {
+            var phoneNumber = Faker.Phone.Number();
+            EnterPhone(phoneNumber);
+            return phoneNumber;
+        }
+
+        public string EnterPhone(string phoneNumber)
+        {
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+            phoneField.SendKeys(phoneNumber);
+            return phoneNumber;
+        }
+
         public string EnterSubject()
         {
-            var name = Faker.Lorem.GetFirstWord();
-            var nameField = Driver.GetClickableElement(By.XPath(_subjectLocator));
-            nameField.Clear();
-            nameField.SendKeys(name);
-            return name;
+            var subject = Faker.Lorem.GetFirstWord();
+            EnterSubject(subject);
+            return subject;
+        }
+
+        public string EnterSubject(string subject)
+        {
+            var subjectField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+            subjectField.Clear();
+            subjectField.SendKeys(subject);
+            return subject;
+        }
+
+        public string EnterMessage()
+        {
+            var message = Faker.Lorem.Paragraph();
+            EnterMessage(message);
+            return message;
+        }
+
+        public string EnterMessage(string message)
+        {
+            var messageField = Driver.GetClickableElement(By.XPath(_messageLocator));
+            messageField.Clear();
+            messageField.SendKeys(message);
+            return message;
         }
     }
 }

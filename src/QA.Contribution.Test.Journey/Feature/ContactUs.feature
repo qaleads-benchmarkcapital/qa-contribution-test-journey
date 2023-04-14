@@ -23,9 +23,12 @@ Scenario: The one where the customer successfully submits a Basic Message
 @refactor
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
-	When the customer types an empty string into the email address field
+	When the customer types valid values in below fields:
+	| name | phone      | subject             | message                               |
+	| Alex | 7710022388 | Enquiry about hotel | Need you contact details to know more |
+	And the customer types an empty string into the email address field
 	And the customer submits the message
-	Then the customer is informed of the email validation error
+	Then the customer is informed of "Email may not be blank" error message
 
 @failing
 Scenario: The one where the customer provides a malformed email address

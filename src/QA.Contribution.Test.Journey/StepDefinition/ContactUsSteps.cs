@@ -2,6 +2,9 @@
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QA.Contribution.Test.Journey.Page;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+using TechTalk.SpecFlow.Assist;
+using QA.Contribution.Test.Journey.Domain;
 
 namespace QA.Contribution.Test.Journey.StepDefinition
 {
@@ -42,6 +45,10 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer types an empty string into the email address field")]
         public void WhenTheCustomerTypesAnEmptyStringIntoTheEmailAddressField()
         {
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterPhone();
+            _contactUsPage.EnterSubject();
+            _contactUsPage.EnterMessage();
             _contactUsPage.ClearEmailAddress();
         }
         
@@ -51,7 +58,18 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterMessage();
         }
 
-        [Then("the message is successfully submitted")]
+         [When(@"the customer types valid values in below fields:")]
+         public void WhenTheCustomerTypesValidValuesInBelowFields(Table table)
+         {
+            var form = table.CreateInstance<ContactForm>();
+            _contactUsPage.EnterName(form.name ?? string.Empty);
+            _contactUsPage.EnterPhone(form.phone ?? string.Empty);
+            _contactUsPage.EnterEmailAddress(form.email ?? string.Empty);
+            _contactUsPage.EnterSubject(form.subject ?? string.Empty);
+            _contactUsPage.EnterMessage(form.message ?? string.Empty);            
+        }
+
+    [Then("the message is successfully submitted")]
         public void ThenTheMessageIsSuccessfullySubmitted()
         {
             var message = _contactUsPage.GetSuccessMessage();
@@ -71,8 +89,18 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
-        
-        [Then("the user is presented with the correct validation message")]
+
+        [Then(@"the customer is informed of ""(.*)"" error message")]
+       public void ThenTheCustomerIsInformedOfErrorMessage(string errorMessage)
+       {
+            Console.WriteLine("*********** error - " + errorMessage);
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.AreEqual(errorMessage, message);
+       }
+
+
+
+    [Then("the user is presented with the correct validation message")]
         public void ThenTheUserIsPresentedWithTheCorrectValidationMessage()
         {
             var message = _contactUsPage.GetErrorMessage();
