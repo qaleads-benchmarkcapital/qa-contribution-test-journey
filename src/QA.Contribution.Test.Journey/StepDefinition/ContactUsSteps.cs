@@ -41,7 +41,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.ClickSend();
         }
 
-        [When("the customer types an empty string into the email address field")]
+        [When("the customer enters an empty string into the email address field")]
         public void WhenTheCustomerTypesAnEmptyStringIntoTheEmailAddressField()
         {
             _contactUsPage.EnterName();
@@ -52,7 +52,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         }
 
 
-        [When("the customer types an empty string into the name field")]
+        [When("the customer enters an empty string into the name field")]
         public void WhenTheCustomerTypesAnEmptyStringIntoTheNameField()
         {
             _contactUsPage.EnterName();
@@ -63,13 +63,13 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.ClearNameField();
         }
 
-        [When("the user types a message into the message body field")]
+        [When("the user enters a message into the message body field")]
         public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
         {
             _contactUsPage.EnterMessage();
         }
 
-        [When(@"the customer types valid values in below fields:")]
+        [When(@"the customer enters valid values in below fields:")]
         public void WhenTheCustomerTypesValidValuesInBelowFields(Table table)
         {
             var form = table.CreateInstance<ContactForm>();
@@ -79,14 +79,22 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterSubject(form.subject ?? string.Empty);
             _contactUsPage.EnterMessage(form.message ?? string.Empty);
             _contactUsPage.EnterEmailAddress(form.email ?? string.Empty);
-            Console.WriteLine("mail entered");
+            Console.WriteLine("name entered");
         }
 
-        [When(@"the customer types malformed email address")]
+        [When(@"the customer enters malformed email address")]
         public void WhenTheCustomerTypesMalformedEmailAddress()
         {
             _contactUsPage.EnterMalformedEmailAddress();
         }
+
+        [When(@"the customer enters an invalid ""(.*)"" phone number")]
+         public void WhenTheCustomerEntersAnInvalidPhoneNumber(string phoneNumber)
+        {
+            _contactUsPage.EnterPhone(phoneNumber);
+        }
+
+
 
         [Then("the message is successfully submitted")]
         public void ThenTheMessageIsSuccessfullySubmitted()
@@ -110,10 +118,9 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
 
-        [Then(@"the customer is informed of ""(.*)"" error message")]
+        [Then(@"the error message ""(.*)"" is displayed")]
         public void ThenTheCustomerIsInformedOfErrorMessage(string errorMessage)
         {
-            Console.WriteLine("*********** error - " + errorMessage);
             var message = _contactUsPage.GetErrorMessage();
             Assert.AreEqual(errorMessage, message);
         }

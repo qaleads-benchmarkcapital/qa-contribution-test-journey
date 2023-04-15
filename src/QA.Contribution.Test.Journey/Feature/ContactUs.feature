@@ -14,30 +14,45 @@
 	Invalid Email Address -  An empty string
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain
 
-Scenario: The one where the customer successfully submits a Basic Message
+Scenario: The customer submits the contact form successfully
 	Given the Contact Us page is displayed
-	When the customer types valid values in below fields:
+	When the customer enters valid values in below fields:
 		| name | email          | phone       | subject             | message                                |
 		| Alex | alex@gmail.com | 07710022388 | Enquiry about hotel | Need your contact details to know more |
 	And the customer submits the message
 	Then the message is successfully submitted
 
 @refactor
-Scenario: The one where the customer provides an invalid email address
+Scenario: The customer provides an invalid email address
 	Given the Contact Us page is displayed
-	When the customer types valid values in below fields:
-		| name | phone       | subject             | message                               |
+	When the customer enters valid values in below fields:
+		| name | phone       | subject             | message                                |
 		| Alex | 07710022388 | Enquiry about hotel | Need your contact details to know more |
-	And the customer types an empty string into the email address field
+	And the customer enters an empty string into the email address field
 	And the customer submits the message
-	Then the customer is informed of "Email may not be blank" error message
+	Then the error message "Email may not be blank" is displayed
 
 @failing
-Scenario: The one where the customer provides a malformed email address
+Scenario: The customer provides a malformed email address
 	Given the Contact Us page is displayed
-	When the customer types valid values in below fields:
-		| name | phone       | subject             | message                               |
+	When the customer enters valid values in below fields:
+		| name | phone       | subject             | message                                |
 		| Alex | 07710022388 | Enquiry about hotel | Need your contact details to know more |
-	And the customer types malformed email address
+	And the customer enters malformed email address
 	And the customer submits the message
-	Then the customer is informed of "must be a well-formed email address" error message
+	Then the error message "must be a well-formed email address" is displayed
+
+
+Scenario Outline: The customer provides an invalid phone number
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| name | email          | subject             | message                                |
+		| Alex | Alex@gmail.com | Enquiry about hotel | Need your contact details to know more |
+	And the customer enters an invalid "<phone-number>" phone number
+	And the customer submits the message
+	Then the error message "<error-message>" is displayed
+
+Examples:
+	| phone-number           | error-message                                       |
+	| 1234567890             | Phone must be between 11 and 21 characters.         |
+	| 1234567890123456789011 | Phone must be between 11 and 21 characters.         |
