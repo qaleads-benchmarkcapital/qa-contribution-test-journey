@@ -33,7 +33,7 @@ namespace QA.Contribution.Test.Journey.Page
             var errorAlert = Driver.GetClickableElement(By.XPath(_errorLocator));
             return errorAlert.Text;
         }
-        
+
         public string GetSuccessMessageHeader()
         {
             var successAlert = Driver.GetClickableElement(By.XPath(_successMessageHeaderLocator));
@@ -73,10 +73,10 @@ namespace QA.Contribution.Test.Journey.Page
         public void EnterName(string name)
         {
             EnterText(_nameLocator, name);
-        }     
+        }
 
         public void EnterPhone(string phoneNumber)
-        {        
+        {
             EnterText(_phoneLocator, phoneNumber);
         }
 
