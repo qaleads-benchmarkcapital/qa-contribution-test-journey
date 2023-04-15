@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-
+using System;
 using TechTalk.SpecFlow;
 
 namespace QA.Contribution.Test.Journey.Page
@@ -14,10 +14,12 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _messageLocator = "//*[@id='description']";
         private readonly string _submitMessageLocator = "//*[@id='submitContact']";
         private readonly string _subjectLocator = "//*[@id='subject']";
-        private readonly string _errorLocator = "//*[@class='alert alert-danger']";
-        private readonly string _successLocator = "//*[text()='as soon as possible.']";
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
+        private readonly string _successMessageHeaderLocator = "//*[contains(text(),'Thanks for getting in touch')]";
+        private readonly string _successSecondHeaderLocator = "//*[text()='We'll get back to you about']";
+        private readonly string _successLastLocator = "//*[text()='as soon as possible.']";
+        private readonly string _errorLocator = "//*[@class='alert alert-danger']";
 
         public string ClickSend()
         {
@@ -31,11 +33,24 @@ namespace QA.Contribution.Test.Journey.Page
             return errorAlert.Text;
         }
 
-        public string GetSuccessMessage()
+        public string GetSuccessMessageHeader()
         {
-            var successAlert = Driver.GetClickableElement(By.XPath(_successLocator));
+            var successAlert = Driver.GetClickableElement(By.XPath(_successMessageHeaderLocator));
             return successAlert.Text;
         }
+
+        public string GetSuccessSecondHeaderLocator()
+        {
+            var successAlert = Driver.GetClickableElement(By.XPath(_successSecondHeaderLocator));
+            return successAlert.Text;
+        }
+
+        public string GetSuccessLastLocator()
+        {
+            var successAlert = Driver.GetClickableElement(By.XPath(_successLastLocator));
+            return successAlert.Text;
+        }
+
 
         public string EnterEmailAddress()
         {
@@ -47,12 +62,14 @@ namespace QA.Contribution.Test.Journey.Page
         public string EnterEmailAddress(string email)
         {
             var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
+            Console.WriteLine("email f - "+emailField.Text);
             emailField.Clear();
             emailField.SendKeys(email);
+            Console.WriteLine("email entered");
             return email;
         }
 
-        public string EnterInvalidEmailAddress()
+        public string EnterMalformedEmailAddress()
         {
             var email = Faker.Lorem.GetFirstWord();
             EnterEmailAddress(email);
@@ -63,6 +80,12 @@ namespace QA.Contribution.Test.Journey.Page
         {
             var emailField = Driver.GetClickableElement(By.XPath(_emailLocator));
             emailField.Clear();
+        }
+
+        public void ClearNameField()
+        {
+            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            nameField.Clear();
         }
 
         public string EnterName()

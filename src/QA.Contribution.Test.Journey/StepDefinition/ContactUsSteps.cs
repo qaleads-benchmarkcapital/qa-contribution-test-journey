@@ -2,7 +2,6 @@
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QA.Contribution.Test.Journey.Page;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using TechTalk.SpecFlow.Assist;
 using QA.Contribution.Test.Journey.Domain;
 
@@ -51,38 +50,59 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterMessage();
             _contactUsPage.ClearEmailAddress();
         }
-        
+
+
+        [When("the customer types an empty string into the name field")]
+        public void WhenTheCustomerTypesAnEmptyStringIntoTheNameField()
+        {
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterPhone();
+            _contactUsPage.EnterSubject();
+            _contactUsPage.EnterMessage();
+            _contactUsPage.ClearEmailAddress();
+            _contactUsPage.ClearNameField();
+        }
+
         [When("the user types a message into the message body field")]
         public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
         {
             _contactUsPage.EnterMessage();
         }
 
-         [When(@"the customer types valid values in below fields:")]
-         public void WhenTheCustomerTypesValidValuesInBelowFields(Table table)
-         {
+        [When(@"the customer types valid values in below fields:")]
+        public void WhenTheCustomerTypesValidValuesInBelowFields(Table table)
+        {
             var form = table.CreateInstance<ContactForm>();
             _contactUsPage.EnterName(form.name ?? string.Empty);
+            Console.WriteLine("name entered");
             _contactUsPage.EnterPhone(form.phone ?? string.Empty);
-            _contactUsPage.EnterEmailAddress(form.email ?? string.Empty);
             _contactUsPage.EnterSubject(form.subject ?? string.Empty);
-            _contactUsPage.EnterMessage(form.message ?? string.Empty);            
+            _contactUsPage.EnterMessage(form.message ?? string.Empty);
+            _contactUsPage.EnterEmailAddress(form.email ?? string.Empty);
+            Console.WriteLine("mail entered");
         }
 
-    [Then("the message is successfully submitted")]
+        [When(@"the customer types malformed email address")]
+        public void WhenTheCustomerTypesMalformedEmailAddress()
+        {
+            _contactUsPage.EnterMalformedEmailAddress();
+        }
+
+        [Then("the message is successfully submitted")]
         public void ThenTheMessageIsSuccessfullySubmitted()
         {
-            var message = _contactUsPage.GetSuccessMessage();
+            var message = _contactUsPage.GetSuccessMessageHeader();
             Assert.IsFalse(string.IsNullOrEmpty(message));
+            Assert.IsFalse(string.IsNullOrEmpty(_contactUsPage.GetSuccessMessageHeader()));
         }
-        
+
         [Then("the message is not submitted successfully")]
         public void ThenTheMessageIsNotSubmittedSuccessfully()
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
-        
+
         [Then("the customer is informed of the email validation error")]
         public void ThenTheCustomerIsInformedOfTheEmailValidationError()
         {
@@ -91,27 +111,18 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         }
 
         [Then(@"the customer is informed of ""(.*)"" error message")]
-       public void ThenTheCustomerIsInformedOfErrorMessage(string errorMessage)
-       {
+        public void ThenTheCustomerIsInformedOfErrorMessage(string errorMessage)
+        {
             Console.WriteLine("*********** error - " + errorMessage);
             var message = _contactUsPage.GetErrorMessage();
             Assert.AreEqual(errorMessage, message);
-       }
+        }
 
-
-
-    [Then("the user is presented with the correct validation message")]
+        [Then("the user is presented with the correct validation message")]
         public void ThenTheUserIsPresentedWithTheCorrectValidationMessage()
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
-        }
-
-        [When(@"the customer completes a Basic Message with a malformed email address")]
-        public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
-        {
-            _contactUsPage.EnterInvalidEmailAddress();
-            _contactUsPage.EnterMessage();
         }
     }
 }

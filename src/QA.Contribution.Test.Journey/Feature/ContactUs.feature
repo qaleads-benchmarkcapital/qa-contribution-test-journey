@@ -16,7 +16,9 @@
 
 Scenario: The one where the customer successfully submits a Basic Message
 	Given the Contact Us page is displayed
-	When the customer enters a Basic Message
+	When the customer types valid values in below fields:
+		| name | email          | phone       | subject             | message                                |
+		| Alex | alex@gmail.com | 07710022388 | Enquiry about hotel | Need your contact details to know more |
 	And the customer submits the message
 	Then the message is successfully submitted
 
@@ -24,8 +26,8 @@ Scenario: The one where the customer successfully submits a Basic Message
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
 	When the customer types valid values in below fields:
-	| name | phone      | subject             | message                               |
-	| Alex | 7710022388 | Enquiry about hotel | Need you contact details to know more |
+		| name | phone       | subject             | message                               |
+		| Alex | 07710022388 | Enquiry about hotel | Need your contact details to know more |
 	And the customer types an empty string into the email address field
 	And the customer submits the message
 	Then the customer is informed of "Email may not be blank" error message
@@ -33,6 +35,9 @@ Scenario: The one where the customer provides an invalid email address
 @failing
 Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
-	When the customer completes a Basic Message with a malformed email address
+	When the customer types valid values in below fields:
+		| name | phone       | subject             | message                               |
+		| Alex | 07710022388 | Enquiry about hotel | Need your contact details to know more |
+	And the customer types malformed email address
 	And the customer submits the message
-	Then the user is presented with the correct validation message
+	Then the customer is informed of "must be a well-formed email address" error message
