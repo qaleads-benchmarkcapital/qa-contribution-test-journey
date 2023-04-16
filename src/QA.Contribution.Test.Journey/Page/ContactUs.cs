@@ -108,5 +108,11 @@ namespace QA.Contribution.Test.Journey.Page
             var email = Faker.Lorem.Paragraph().Substring(0, size);
             EnterSubject(email);
         }
+
+        public void EnterMessage(int size)
+        {
+            var email = Faker.Lorem.Sentence(size).Substring(0, size);
+             EnterMessage(email);
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _landingPage.Navigate();
         }
-   
+
 
         [When("the customer submits the contact form")]
         public void WhenTheCustomerSubmitsTheMessage()
@@ -62,15 +62,21 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         }
 
         [When(@"the customer enters an invalid ""(.*)"" phone number")]
-         public void WhenTheCustomerEntersAnInvalidPhoneNumber(string phoneNumber)
+        public void WhenTheCustomerEntersAnInvalidPhoneNumber(string phoneNumber)
         {
             _contactUsPage.EnterPhone(phoneNumber);
         }
 
         [When(@"the customer enters a subject with (.*) letters")]
-        public void WhenTheCustomerEntersAnInvalidSubjectWithLetters(int length)
+        public void WhenTheCustomerEntersASubjectWithLetters(int length)
         {
             _contactUsPage.EnterSubject(length);
+        }
+
+        [When(@"the customer enters a message with (.*) letters")]
+        public void WhenTheCustomerEntersAMessageWithLetters(int length)
+        {
+            _contactUsPage.EnterMessage(length);
         }
 
         [Then("the message is successfully submitted")]

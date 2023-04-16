@@ -65,7 +65,7 @@ Examples:
 	| 1234567890             | Phone must be between 11 and 21 characters. |
 	| 1234567890123456789011 | Phone must be between 11 and 21 characters. |
 
-Scenario Outline: The customer provides name with less than 5 characters or more than 100 characters
+Scenario Outline: The customer provides subject with less than 5 characters or more than 100 characters
 	Given the Contact Us page is displayed
 	When the customer enters valid values in below fields:
 		| name | email          | phone       | message                                |
@@ -78,3 +78,17 @@ Examples:
 	| subject-length |
 	| 4              |
 	| 101            |
+
+Scenario Outline: The customer provides message with less than 20 characters or more than 2000 characters
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| name | email          | phone       | subject             |
+		| Alex | alex@gmail.com | 07710022388 | Enquiry about hotel |
+	And the customer enters a message with <message-length> letters
+	And the customer submits the contact form
+	Then the error message "Message must be between 20 and 2000 characters." is displayed
+
+Examples:
+	| message-length |
+	| 19             |
+	| 2001           |

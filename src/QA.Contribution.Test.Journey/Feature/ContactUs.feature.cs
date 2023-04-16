@@ -394,13 +394,13 @@ this.TheCustomerProvidesPhoneNumberWithLessThan11CharactersOrMoreThan21Character
 #line hidden
         }
         
-        public virtual void TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters(string subject_Length, string[] exampleTags)
+        public virtual void TheCustomerProvidesSubjectWithLessThan5CharactersOrMoreThan100Characters(string subject_Length, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("subject-length", subject_Length);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides name with less than 5 characters or more than 100 character" +
-                    "s", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides subject with less than 5 characters or more than 100 charac" +
+                    "ters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 68
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -438,7 +438,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table6, "When ");
 #line hidden
 #line 73
- testRunner.And(string.Format("the customer enters an invalid subject with {0} letters", subject_Length), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("the customer enters a subject with {0} letters", subject_Length), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 74
  testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -450,21 +450,95 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The customer provides name with less than 5 characters or more than 100 character" +
-            "s, 4", SourceLine=78)]
-        public virtual void TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters_4()
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides subject with less than 5 characters or more than 100 charac" +
+            "ters, 4", SourceLine=78)]
+        public virtual void TheCustomerProvidesSubjectWithLessThan5CharactersOrMoreThan100Characters_4()
         {
 #line 68
-this.TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters("4", ((string[])(null)));
+this.TheCustomerProvidesSubjectWithLessThan5CharactersOrMoreThan100Characters("4", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The customer provides name with less than 5 characters or more than 100 character" +
-            "s, 101", SourceLine=78)]
-        public virtual void TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters_101()
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides subject with less than 5 characters or more than 100 charac" +
+            "ters, 101", SourceLine=78)]
+        public virtual void TheCustomerProvidesSubjectWithLessThan5CharactersOrMoreThan100Characters_101()
         {
 #line 68
-this.TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters("101", ((string[])(null)));
+this.TheCustomerProvidesSubjectWithLessThan5CharactersOrMoreThan100Characters("101", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void TheCustomerProvidesMessageWithLessThan20CharactersOrMoreThan2000Characters(string message_Length, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("message-length", message_Length);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides message with less than 20 characters or more than 2000 char" +
+                    "acters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 82
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 83
+ testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "email",
+                            "phone",
+                            "subject"});
+                table7.AddRow(new string[] {
+                            "Alex",
+                            "alex@gmail.com",
+                            "07710022388",
+                            "Enquiry about hotel"});
+#line 84
+ testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table7, "When ");
+#line hidden
+#line 87
+ testRunner.And(string.Format("the customer enters a message with {0} letters", message_Length), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 88
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 89
+ testRunner.Then("the error message \"Message must be between 20 and 2000 characters.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides message with less than 20 characters or more than 2000 char" +
+            "acters, 19", SourceLine=92)]
+        public virtual void TheCustomerProvidesMessageWithLessThan20CharactersOrMoreThan2000Characters_19()
+        {
+#line 82
+this.TheCustomerProvidesMessageWithLessThan20CharactersOrMoreThan2000Characters("19", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides message with less than 20 characters or more than 2000 char" +
+            "acters, 2001", SourceLine=92)]
+        public virtual void TheCustomerProvidesMessageWithLessThan20CharactersOrMoreThan2000Characters_2001()
+        {
+#line 82
+this.TheCustomerProvidesMessageWithLessThan20CharactersOrMoreThan2000Characters("2001", ((string[])(null)));
 #line hidden
         }
     }
