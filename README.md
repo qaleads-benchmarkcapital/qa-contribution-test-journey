@@ -85,25 +85,30 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+Around 3-4 hours as I am new to C# and tested all scenrios with automation
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+1. Optimise page object model to define the page elements once during the lifecycle of the test
+2. Correct the structure and grouped the files together
+3. Add a formatting plugin as a part of build to fail the build if formatting is off
+4. Add a static analyser as a part of build to fail the build in case of any code quality isue
+5. Enable GitHub Actions to build and run the tests as a part of pipeline 
+6. Enable GitHub Actions to check the conventional commit messages whenever any PR is raised
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Fixing failling test case was easy as the code structure was easy to understand
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Adding additional scenarios to test the form in C# as I had never worked on C# before
 ```
 
 ### Submitting your test response
