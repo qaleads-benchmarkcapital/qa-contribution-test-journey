@@ -91,8 +91,8 @@ Around 3-4 hours as I am new to C# and tested all scenrios with automation
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-1. Optimise page object model to define the page elements once during the lifecycle of the test
-2. Correct the structure and grouped the files together
+1. Optimise page object model to define the page elements once during the lifecycle of the feature
+2. Correct the structure and group the files together
 3. Add a formatting plugin as a part of build to fail the build if formatting is off
 4. Add a static analyser as a part of build to fail the build in case of any code quality isue
 5. Enable GitHub Actions to build and run the tests as a part of pipeline 
@@ -143,3 +143,6 @@ feature/account-access-journey
 **Notes:** :black_nib:
 - We would like you to use the conventional commits approach to commit comments when committing changes [Convential commits](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 - We encourage you to commit changes little and often, at the minimum we would like to see different commits with appropriate commit messages using _conventional_ _commits_ for each of the tasks you undertake
+
+## Bug Report
+I have found 6 bugs during my testing and created a bug report
