@@ -70,6 +70,12 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.Clear();
         }
 
+        public void ClearName()
+        {
+            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            nameField.Clear();
+        }
+
         public void EnterName(string name)
         {
             EnterText(_nameLocator, name);
@@ -95,6 +101,12 @@ namespace QA.Contribution.Test.Journey.Page
             var field = Driver.GetClickableElement(By.XPath(locator));
             field.Clear();
             field.SendKeys(text);
+        }
+
+        public void EnterSubject(int size)
+        {
+            var email = Faker.Lorem.Paragraph().Substring(0, size);
+            EnterSubject(email);
         }
     }
 }

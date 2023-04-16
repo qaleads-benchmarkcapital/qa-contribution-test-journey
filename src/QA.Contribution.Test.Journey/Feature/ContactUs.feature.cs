@@ -264,14 +264,13 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        public virtual void TheCustomerProvidesAnInvalidPhoneNumber(string phone_Number, string error_Message, string[] exampleTags)
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides an invalid name", SourceLine=44)]
+        public virtual void TheCustomerProvidesAnInvalidName()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("phone-number", phone_Number);
-            argumentsOfScenario.Add("error-message", error_Message);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides an invalid phone number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 46
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides an invalid name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 45
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -291,48 +290,181 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 46
  testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "email",
+                            "phone",
+                            "subject",
+                            "message"});
+                table4.AddRow(new string[] {
+                            "Alex@gmail.com",
+                            "07710022388",
+                            "Enquiry about hotel",
+                            "Need your contact details to know more"});
+#line 47
+ testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table4, "When ");
+#line hidden
+#line 50
+ testRunner.And("the customer enters an empty string into the name field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 51
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 52
+ testRunner.Then("the error message \"Name may not be blank\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void TheCustomerProvidesPhoneNumberWithLessThan11CharactersOrMoreThan21Characters(string phone_Number, string error_Message, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("phone-number", phone_Number);
+            argumentsOfScenario.Add("error-message", error_Message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides phone number with less than 11 characters or more than 21 c" +
+                    "haracters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 54
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 55
+ testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "name",
                             "email",
                             "subject",
                             "message"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "Alex",
                             "Alex@gmail.com",
                             "Enquiry about hotel",
                             "Need your contact details to know more"});
-#line 48
- testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table4, "When ");
+#line 56
+ testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table5, "When ");
 #line hidden
-#line 51
+#line 59
  testRunner.And(string.Format("the customer enters an invalid \"{0}\" phone number", phone_Number), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 52
+#line 60
  testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 61
  testRunner.Then(string.Format("the error message \"{0}\" is displayed", error_Message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The customer provides an invalid phone number, 1234567890", SourceLine=56)]
-        public virtual void TheCustomerProvidesAnInvalidPhoneNumber_1234567890()
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides phone number with less than 11 characters or more than 21 c" +
+            "haracters, 1234567890", SourceLine=64)]
+        public virtual void TheCustomerProvidesPhoneNumberWithLessThan11CharactersOrMoreThan21Characters_1234567890()
         {
-#line 46
-this.TheCustomerProvidesAnInvalidPhoneNumber("1234567890", "Phone must be between 11 and 21 characters.", ((string[])(null)));
+#line 54
+this.TheCustomerProvidesPhoneNumberWithLessThan11CharactersOrMoreThan21Characters("1234567890", "Phone must be between 11 and 21 characters.", ((string[])(null)));
 #line hidden
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The customer provides an invalid phone number, 1234567890123456789011", SourceLine=56)]
-        public virtual void TheCustomerProvidesAnInvalidPhoneNumber_1234567890123456789011()
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides phone number with less than 11 characters or more than 21 c" +
+            "haracters, 1234567890123456789011", SourceLine=64)]
+        public virtual void TheCustomerProvidesPhoneNumberWithLessThan11CharactersOrMoreThan21Characters_1234567890123456789011()
         {
-#line 46
-this.TheCustomerProvidesAnInvalidPhoneNumber("1234567890123456789011", "Phone must be between 11 and 21 characters.", ((string[])(null)));
+#line 54
+this.TheCustomerProvidesPhoneNumberWithLessThan11CharactersOrMoreThan21Characters("1234567890123456789011", "Phone must be between 11 and 21 characters.", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters(string subject_Length, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("subject-length", subject_Length);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The customer provides name with less than 5 characters or more than 100 character" +
+                    "s", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 68
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 69
+ testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "email",
+                            "phone",
+                            "message"});
+                table6.AddRow(new string[] {
+                            "Alex",
+                            "Alex@gmail.com",
+                            "07710022388",
+                            "Need your contact details to know more"});
+#line 70
+ testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table6, "When ");
+#line hidden
+#line 73
+ testRunner.And(string.Format("the customer enters an invalid subject with {0} letters", subject_Length), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 74
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 75
+ testRunner.Then("the error message \"Subject must be between 5 and 100 characters.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides name with less than 5 characters or more than 100 character" +
+            "s, 4", SourceLine=78)]
+        public virtual void TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters_4()
+        {
+#line 68
+this.TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters("4", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The customer provides name with less than 5 characters or more than 100 character" +
+            "s, 101", SourceLine=78)]
+        public virtual void TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters_101()
+        {
+#line 68
+this.TheCustomerProvidesNameWithLessThan5CharactersOrMoreThan100Characters("101", ((string[])(null)));
 #line hidden
         }
     }

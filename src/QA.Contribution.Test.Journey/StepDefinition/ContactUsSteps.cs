@@ -38,6 +38,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.ClearEmailAddress();
         }
 
+        [When("the customer enters an empty string into the name field")]
+        public void WhenTheCustomerTypesAnEmptyStringIntoThNameField()
+        {
+            _contactUsPage.ClearName();
+        }
+
         [When(@"the customer enters valid values in below fields:")]
         public void WhenTheCustomerTypesValidValuesInBelowFields(Table table)
         {
@@ -59,6 +65,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
          public void WhenTheCustomerEntersAnInvalidPhoneNumber(string phoneNumber)
         {
             _contactUsPage.EnterPhone(phoneNumber);
+        }
+
+        [When(@"the customer enters a subject with (.*) letters")]
+        public void WhenTheCustomerEntersAnInvalidSubjectWithLetters(int length)
+        {
+            _contactUsPage.EnterSubject(length);
         }
 
         [Then("the message is successfully submitted")]

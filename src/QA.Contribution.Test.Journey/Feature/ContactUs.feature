@@ -42,8 +42,16 @@ Scenario: The customer provides a malformed email address
 	And the customer submits the contact form
 	Then the error message "must be a well-formed email address" is displayed
 
+Scenario: The customer provides an invalid name
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| email          | phone       | subject             | message                                |
+		| Alex@gmail.com | 07710022388 | Enquiry about hotel | Need your contact details to know more |
+	And the customer enters an empty string into the name field
+	And the customer submits the contact form
+	Then the error message "Name may not be blank" is displayed
 
-Scenario Outline: The customer provides an invalid phone number
+Scenario Outline: The customer provides phone number with less than 11 characters or more than 21 characters
 	Given the Contact Us page is displayed
 	When the customer enters valid values in below fields:
 		| name | email          | subject             | message                                |
@@ -53,6 +61,20 @@ Scenario Outline: The customer provides an invalid phone number
 	Then the error message "<error-message>" is displayed
 
 Examples:
-	| phone-number           | error-message                                       |
-	| 1234567890             | Phone must be between 11 and 21 characters.         |
-	| 1234567890123456789011 | Phone must be between 11 and 21 characters.         |
+	| phone-number           | error-message                               |
+	| 1234567890             | Phone must be between 11 and 21 characters. |
+	| 1234567890123456789011 | Phone must be between 11 and 21 characters. |
+
+Scenario Outline: The customer provides name with less than 5 characters or more than 100 characters
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| name | email          | phone       | message                                |
+		| Alex | Alex@gmail.com | 07710022388 | Need your contact details to know more |
+	And the customer enters a subject with <subject-length> letters
+	And the customer submits the contact form
+	Then the error message "Subject must be between 5 and 100 characters." is displayed
+
+Examples:
+	| subject-length |
+	| 4              |
+	| 101            |
