@@ -26,7 +26,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         }
    
 
-        [When("the customer submits the message")]
+        [When("the customer submits the contact form")]
         public void WhenTheCustomerSubmitsTheMessage()
         {
             _contactUsPage.ClickSend();

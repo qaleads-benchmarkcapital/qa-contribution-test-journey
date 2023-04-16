@@ -19,7 +19,7 @@ Scenario: The customer submits the contact form successfully
 	When the customer enters valid values in below fields:
 		| name | email          | phone       | subject             | message                                |
 		| Alex | alex@gmail.com | 07710022388 | Enquiry about hotel | Need your contact details to know more |
-	And the customer submits the message
+	And the customer submits the contact form
 	Then the message is successfully submitted
 
 @refactor
@@ -29,7 +29,7 @@ Scenario: The customer provides an invalid email address
 		| name | phone       | subject             | message                                |
 		| Alex | 07710022388 | Enquiry about hotel | Need your contact details to know more |
 	And the customer enters an empty string into the email address field
-	And the customer submits the message
+	And the customer submits the contact form
 	Then the error message "Email may not be blank" is displayed
 
 @failing
@@ -39,7 +39,7 @@ Scenario: The customer provides a malformed email address
 		| name | phone       | subject             | message                                |
 		| Alex | 07710022388 | Enquiry about hotel | Need your contact details to know more |
 	And the customer enters malformed email address
-	And the customer submits the message
+	And the customer submits the contact form
 	Then the error message "must be a well-formed email address" is displayed
 
 
@@ -49,7 +49,7 @@ Scenario Outline: The customer provides an invalid phone number
 		| name | email          | subject             | message                                |
 		| Alex | Alex@gmail.com | Enquiry about hotel | Need your contact details to know more |
 	And the customer enters an invalid "<phone-number>" phone number
-	And the customer submits the message
+	And the customer submits the contact form
 	Then the error message "<error-message>" is displayed
 
 Examples:

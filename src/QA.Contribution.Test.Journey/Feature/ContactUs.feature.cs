@@ -141,7 +141,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the customer enters valid values in below fields:", ((string)(null)), table1, "When ");
 #line hidden
 #line 22
- testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 23
  testRunner.Then("the message is successfully submitted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -198,7 +198,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("the customer enters an empty string into the email address field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 32
- testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 33
  testRunner.Then("the error message \"Email may not be blank\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -255,7 +255,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("the customer enters malformed email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 42
- testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
  testRunner.Then("the error message \"must be a well-formed email address\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -311,7 +311,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("the customer enters an invalid \"{0}\" phone number", phone_Number), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 52
- testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the customer submits the contact form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 53
  testRunner.Then(string.Format("the error message \"{0}\" is displayed", error_Message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
