@@ -67,6 +67,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterPhone(phoneNumber);
         }
 
+        [When(@"the customer enters a valid ""(.*)"" phone number")]
+        public void WhenTheCustomerEntersAValidPhoneNumber(string phoneNumber)
+        {
+            _contactUsPage.EnterPhone(phoneNumber);
+        }
+
         [When(@"the customer enters a subject with (.*) letters")]
         public void WhenTheCustomerEntersASubjectWithLetters(int length)
         {

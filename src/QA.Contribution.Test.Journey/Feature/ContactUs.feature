@@ -42,6 +42,7 @@ Scenario: The customer provides a malformed email address
 	And the customer submits the contact form
 	Then the error message "must be a well-formed email address" is displayed
 
+@negative
 Scenario: The customer provides an invalid name
 	Given the Contact Us page is displayed
 	When the customer enters valid values in below fields:
@@ -51,6 +52,22 @@ Scenario: The customer provides an invalid name
 	And the customer submits the contact form
 	Then the error message "Name may not be blank" is displayed
 
+@positive
+Scenario Outline: The customer provides phone number with 11 or 21 characters
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| name | email          | subject             | message                                |
+		| Alex | Alex@gmail.com | Enquiry about hotel | Need your contact details to know more |
+	And the customer enters a valid "<phone-number>" phone number
+	And the customer submits the contact form
+	Then the message is successfully submitted
+
+Examples:
+	| phone-number          |
+	| 12345678910           |
+	| 123456789012345678901 |
+
+@negative
 Scenario Outline: The customer provides phone number with less than 11 characters or more than 21 characters
 	Given the Contact Us page is displayed
 	When the customer enters valid values in below fields:
@@ -65,6 +82,22 @@ Examples:
 	| 1234567890             | Phone must be between 11 and 21 characters. |
 	| 1234567890123456789011 | Phone must be between 11 and 21 characters. |
 
+@psitive
+Scenario Outline: The customer provides subject with 5 or 100 characters
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| name | email          | phone       | message                                |
+		| Alex | Alex@gmail.com | 07710022388 | Need your contact details to know more |
+	And the customer enters a subject with <subject-length> letters
+	And the customer submits the contact form
+	Then the message is successfully submitted
+
+Examples:
+	| subject-length |
+	| 5              |
+	| 100            |
+
+@negative
 Scenario Outline: The customer provides subject with less than 5 characters or more than 100 characters
 	Given the Contact Us page is displayed
 	When the customer enters valid values in below fields:
@@ -79,6 +112,22 @@ Examples:
 	| 4              |
 	| 101            |
 
+@positive
+Scenario Outline: The customer provides message with 20 or 2000 characters
+	Given the Contact Us page is displayed
+	When the customer enters valid values in below fields:
+		| name | email          | phone       | subject             |
+		| Alex | alex@gmail.com | 07710022388 | Enquiry about hotel |
+	And the customer enters a message with <message-length> letters
+	And the customer submits the contact form
+	Then the message is successfully submitted
+
+Examples:
+	| message-length |
+	| 20             |
+	| 2000           |
+
+@negative
 Scenario Outline: The customer provides message with less than 20 characters or more than 2000 characters
 	Given the Contact Us page is displayed
 	When the customer enters valid values in below fields:
