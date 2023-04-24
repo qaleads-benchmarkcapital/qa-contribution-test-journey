@@ -44,7 +44,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.ClearEmailAddress();
         }
-        
+
         [When("the user types a message into the message body field")]
         public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
         {
@@ -57,7 +57,18 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             var message = _contactUsPage.GetSuccessMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
-        
+
+        [When("the customer enters valid entries")]
+        public void Whenthecustomerentersvalidentries()
+        {
+            var message = _contactUsPage.GetSuccessMessage();
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterPhone();
+            _contactUsPage.EnterSubject();
+            _contactUsPage.EnterMessage();
+            _contactUsPage.EnterEmailAddress();
+
+        }
         [Then("the message is not submitted successfully")]
         public void ThenTheMessageIsNotSubmittedSuccessfully()
         {
@@ -81,9 +92,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
 
         [When(@"the customer completes a Basic Message with a malformed email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
+        
         {
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.EnterMessage();
+            var message=_contactUsPage.GetErrorMessage();
+            Assert.IsTrue(errorMessage,message);
         }
     }
 }
