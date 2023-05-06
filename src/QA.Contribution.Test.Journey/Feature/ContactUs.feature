@@ -20,17 +20,25 @@ Scenario: The one where the customer successfully submits a Basic Message
 	And the customer submits the message
 	Then the message is successfully submitted
 
-@refactor
+#refactoredByElsi
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
-	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
+	When the customer leaves an email address field as empty 
+	And the user enters a message into the message body field
 	And the customer submits the message
 	Then the message is not submitted successfully
 	And the customer is informed of the email validation error
 
-@failing
+#FailingScenario-FixedByElsi
 Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message with a malformed email address
 	Then the user is presented with the correct validation message
+
+#AddedByElsi 
+Scenario: The one where the customer provides name as empty
+Given the Contact Us page is displayed
+When the customer completes a Basic Message with empty name field
+Then the message is not submitted successfully
+And the customer is informed of the empty name validation message
+

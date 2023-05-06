@@ -39,14 +39,14 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.ClickSend();
         }
 
-        [When("the customer types an empty string into the email address field")]
-        public void WhenTheCustomerTypesAnEmptyStringIntoTheEmailAddressField()
+        [When("the customer leaves an email address field as empty")]
+        public void WhenTheCustomerLeavesAnEmailAddressFieldAsEmpty()
         {
             _contactUsPage.ClearEmailAddress();
         }
         
-        [When("the user types a message into the message body field")]
-        public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
+        [When("the user enters a message into the message body field")]
+        public void WhenTheUserEntersThisIsAMessageIntoTheMessageBodyField()
         {
             _contactUsPage.EnterMessage();
         }
@@ -84,6 +84,28 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.EnterMessage();
+            _contactUsPage.ClickSend();
         }
+
+      
+
+        [Then (@"the customer is informed of the empty name validation message")]
+        public void ThenTheCustomerIsInformedOfTheEmptyNameValidationMessage()
+        {
+            _contactUsPage.GetNameErrorMessage();
+        }
+        [When("the customer completes a Basic Message with empty name field")]
+        public void WhenTheCustomerCompletesABasicMessageWithEmptyNameField()
+        {
+            _contactUsPage.EnterEmailAddress();
+             _contactUsPage.EnterMessage();
+            _contactUsPage.EnterEmptyName();
+            _contactUsPage.ClickSend();
+
+        }
+        
+
     }
+
+
 }

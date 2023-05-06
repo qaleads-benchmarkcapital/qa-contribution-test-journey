@@ -18,7 +18,8 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _successLocator = "//*[text()='as soon as possible.']";
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
-
+        private readonly string _nameErrorLocator = "//p[normalize-space()='Name may not be blank']";
+       
         public string ClickSend()
         {
             Driver.GetClickableElement(By.XPath(_submitMessageLocator)).Click();
@@ -96,5 +97,19 @@ namespace QA.Contribution.Test.Journey.Page
             nameField.SendKeys(name);
             return name;
         }
+
+        public void EnterEmptyName()
+        {
+            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            nameField.Clear();
+
+        }
+
+        public string GetNameErrorMessage()
+        {
+            var errorAlert = Driver.GetClickableElement(By.XPath(_nameErrorLocator));
+            return errorAlert.Text;
+        }
+
     }
 }
