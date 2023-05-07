@@ -35,7 +35,7 @@ Scenario: The one where the customer provides a malformed email address
 	When the customer completes a Basic Message with a malformed email address
 	Then the user is presented with the correct validation message
 
-#AddedByElsi-MessageEmpty
+#AddedByElsi-EmptyMessage
 Scenario: The one where the customer provides name as empty
 Given the Contact Us page is displayed
 When the customer completes a Basic Message with empty name field
@@ -65,9 +65,9 @@ And the customer is informed of the phone character validation message
 
 
 @manual@ignore
-Scenario:Validate the phone number funtionality
+Scenario:Validate the phone number more than expected character
 Given the Contact Us page is displayed
-When the customer enters alphabets or special characters
+When the customer enters more than 21 characters
 Then the phone number is not submitted successfully
 And throws a validation error message
 

@@ -85,25 +85,28 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+<Task 1 : Adding additional scenarios took around 3 hours
+ Task 2 : Refactor task took 30 mins
+ Task 3 : Failing task 15 mins>
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+<To test with preferred data, it would have been simpler if the test data were presented in the gherkin >
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+<Task 3 : Failing task was easier. When I executed the failing task, the error was showing in the Xpath errorlocator. So it was easy to find the issue>
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+<Task 1 : Adding additional scenarios in the existing steps and step implementation.It would have been easier if I had implemented it from the scratch
+ GitHub : As I'm very new to GitHub, it was a bit difficult for me to learn the GitHub process of doing Commit/Pull Request from visual studio/code to GitHub>
 ```
 
 ### Submitting your test response
