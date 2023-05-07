@@ -100,10 +100,55 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterEmailAddress();
              _contactUsPage.EnterMessage();
             _contactUsPage.EnterEmptyName();
+            _contactUsPage.EnterPhone();
             _contactUsPage.ClickSend();
 
         }
+        [When(@"the customer leaves the subject field empty")]
+        public void WhenTheCustomerLeavesTheSubjectFieldEmpty()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterMessage();
+            _contactUsPage.EnterEmptySubject();
+            _contactUsPage.ClickSend(); 
+
+        }
+        [Then(@"the customer is informed of the empty subject validation message")]
+        public void ThenTheCustomerIsInformedOfTheEmptySubjectValidationMessage()
+        {
+            _contactUsPage.GetSubjectErrorMessage();
+        }
+
+        [When(@"the customer enters less than expected phone character")]
+        public void WhenTheCustomerEntersLessThanExpectedPhoneCharacter()
+        {
+            _contactUsPage.EnterMinimumCharacterOfPhone();
+            _contactUsPage.ClickSend();
+        }
+
+        [Then(@"the customer is informed of the phone character validation message")]
+        public void ThenTheCustomerIsInformedOfThePhoneCharacterValidationMessage()
+        {
+            _contactUsPage.GetPhoneErrorMessage();
+        }
+
+        [When(@"the customer leaves the phone field empty")]
+        public void WhenTheCustomerLeavesThePhoneFieldEmpty()
+        {
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterMessage();
+            _contactUsPage.EnterEmptyPhone();
+            _contactUsPage.ClickSend();
+        }
+        [Then(@"the customer is informed of the empty phone validation message")]
+        public void ThenTheCustomerIsInformedOfTheEmptyPhoneValidationMessage()
+        {
+            _contactUsPage.GetPhoneErrorMessage();
+        }
+
         
+
 
     }
 

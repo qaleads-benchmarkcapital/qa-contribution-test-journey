@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
-
+using OpenQA.Selenium.Internal;
+using System;
 using TechTalk.SpecFlow;
 
 namespace QA.Contribution.Test.Journey.Page
@@ -19,7 +20,8 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
         private readonly string _nameErrorLocator = "//p[normalize-space()='Name may not be blank']";
-       
+        private readonly string _phoneErrorLocator = "//p[normalize-space()='Phone must be between 11 and 21 characters.']";
+        private readonly string _subjectErrorLocator = "//p[normalize-space()='Subject must be between 5 and 100 characters.']";
         public string ClickSend()
         {
             Driver.GetClickableElement(By.XPath(_submitMessageLocator)).Click();
@@ -111,5 +113,35 @@ namespace QA.Contribution.Test.Journey.Page
             return errorAlert.Text;
         }
 
+        public void EnterMinimumCharacterOfPhone()
+        {
+            var phone = Faker.Phone.Number();
+            var shortPhone = phone.Trim().Length.ToString();
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+            phoneField.SendKeys(shortPhone);
+            
+        }
+        public string GetPhoneErrorMessage()
+        {
+            var errorAlert = Driver.GetClickableElement(By.XPath(_phoneErrorLocator));
+            return errorAlert.Text;
+        }
+        public void EnterEmptyPhone()
+        {
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+        }
+        public void  EnterEmptySubject()
+        {
+            var subjectField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+            subjectField.Clear();
+        }
+        public string GetSubjectErrorMessage()
+        {
+            var errorAlert = Driver.GetClickableElement(By.XPath(_subjectErrorLocator));
+            return errorAlert.Text;
+        }
+        
     }
 }

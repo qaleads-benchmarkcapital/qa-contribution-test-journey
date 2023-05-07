@@ -35,10 +35,46 @@ Scenario: The one where the customer provides a malformed email address
 	When the customer completes a Basic Message with a malformed email address
 	Then the user is presented with the correct validation message
 
-#AddedByElsi 
+#AddedByElsi-MessageEmpty
 Scenario: The one where the customer provides name as empty
 Given the Contact Us page is displayed
 When the customer completes a Basic Message with empty name field
 Then the message is not submitted successfully
 And the customer is informed of the empty name validation message
+
+#AddedByElsi-EmptyPhone
+Scenario:The one where the customer leaves phone filed as empty
+Given the Contact Us page is displayed
+When the customer leaves the phone field empty
+Then the message is not submitted successfully
+And the customer is informed of the empty phone validation message
+
+#AddedByElsi-EmptySubject
+Scenario: The one where the customer leave message field as empty
+Given the Contact Us page is displayed
+When the customer leaves the subject field empty
+Then the message is not submitted successfully
+And the customer is informed of the empty subject validation message
+
+#AddedByElsi-LessThanExpectedPhoneCharacter
+Scenario:The one where the customer enters less than expected phone character
+Given the Contact Us page is displayed
+When the customer enters less than expected phone character
+Then the message is not submitted successfully
+And the customer is informed of the phone character validation message
+
+
+@manual@ignore
+Scenario:Validate the phone number funtionality
+Given the Contact Us page is displayed
+When the customer enters alphabets or special characters
+Then the phone number is not submitted successfully
+And throws a validation error message
+
+@manual@ignore
+Scenario: Validate the message field below 20 and above 2000 characters
+Given the Contact Us page is displayed
+When the customer enters below 20 and above 2000 characters in message field
+Then the message is not submitted successfully
+And throws a validation error message
 
