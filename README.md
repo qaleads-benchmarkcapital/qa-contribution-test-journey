@@ -85,25 +85,25 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+I believe this work needs more that 30-40 minutes to do a good job including tech. debt reduction by refactoring the code. It took me over 2 hours including requirement analysis and documentation.
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+I have refactored the code to make it reusable. This could have been further improved to follow SOLID design principles and make it more extensible. I have also rephrased the Scenario descriptions so that the tests appear appropriately sorted in a semantic order. 
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Writing new test cases was the easiest as it comes naturally to me.
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Though I understand BDD as a concept, I am not very familiar with Specflow, hence it took me a while to figure out that I had to separately login to SpecFlow+ Runner.
 ```
 
 ### Submitting your test response
