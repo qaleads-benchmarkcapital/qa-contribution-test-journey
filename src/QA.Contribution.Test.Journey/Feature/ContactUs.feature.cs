@@ -38,7 +38,7 @@ namespace QA.Contribution.Test.Journey.Feature
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private static string[] featureTags = ((string[])(null));
         
 #line 1 "ContactUs.feature"
 #line hidden
@@ -60,7 +60,7 @@ namespace QA.Contribution.Test.Journey.Feature
 	Glossary:
 	Basic Message - A message that can be submitted.
 	Invalid Email Address -  An empty string
-	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain", ProgrammingLanguage.CSharp, ((string[])(null)));
+	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,27 +71,27 @@ namespace QA.Contribution.Test.Journey.Feature
             testRunner = null;
         }
         
-        public virtual void TestInitialize()
+        public void TestInitialize()
         {
         }
         
         [TechTalk.SpecRun.ScenarioCleanup()]
-        public virtual void TestTearDown()
+        public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
         }
         
-        public virtual void ScenarioStart()
+        public void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public virtual void ScenarioCleanup()
+        public void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -99,27 +99,17 @@ namespace QA.Contribution.Test.Journey.Feature
         [TechTalk.SpecRun.ScenarioAttribute("Basic Message successful submission", new string[] {
                 "automated",
                 "regression"}, SourceLine=17)]
-        public virtual void BasicMessageSuccessfulSubmission()
+        public void BasicMessageSuccessfulSubmission()
         {
             string[] tagsOfScenario = new string[] {
                     "automated",
                     "regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic Message successful submission", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Basic Message successful submission", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -144,26 +134,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [TechTalk.SpecRun.ScenarioAttribute("Name cannot be blank", new string[] {
                 "automated"}, SourceLine=24)]
-        public virtual void NameCannotBeBlank()
+        public void NameCannotBeBlank()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Name cannot be blank", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Name cannot be blank", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -189,27 +169,17 @@ this.ScenarioInitialize(scenarioInfo);
         [TechTalk.SpecRun.ScenarioAttribute("Name cannot contain only numeric or special characters", new string[] {
                 "manual"}, SourceLine=32)]
         [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void NameCannotContainOnlyNumericOrSpecialCharacters()
+        public void NameCannotContainOnlyNumericOrSpecialCharacters()
         {
             string[] tagsOfScenario = new string[] {
                     "manual",
                     "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Name cannot contain only numeric or special characters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Name cannot contain only numeric or special characters", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 33
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -235,26 +205,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be blank", new string[] {
                 "automated"}, SourceLine=40)]
-        public virtual void EmailCannotBeBlank()
+        public void EmailCannotBeBlank()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email cannot be blank", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email cannot be blank", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -288,21 +248,11 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("malformed_email_address", malformed_Email_Address);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email cannot be malformed", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email cannot be malformed", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 48
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -327,7 +277,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, Abc.example.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_Abc_Example_Com()
+        public void EmailCannotBeMalformed_Abc_Example_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("Abc.example.com", ((string[])(null)));
@@ -336,7 +286,7 @@ this.EmailCannotBeMalformed("Abc.example.com", ((string[])(null)));
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, A@b@c@example.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_ABCExample_Com()
+        public void EmailCannotBeMalformed_ABCExample_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("A@b@c@example.com", ((string[])(null)));
@@ -345,7 +295,7 @@ this.EmailCannotBeMalformed("A@b@c@example.com", ((string[])(null)));
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, just\"not\"right@example.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_JustnotrightExample_Com()
+        public void EmailCannotBeMalformed_JustnotrightExample_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("just\"not\"right@example.com", ((string[])(null)));
@@ -354,7 +304,7 @@ this.EmailCannotBeMalformed("just\"not\"right@example.com", ((string[])(null)));
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, a\"b(c)d,e:f;g<h>i[j\\k]l@example.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_AbCDEFGHIJKLExample_Com()
+        public void EmailCannotBeMalformed_AbCDEFGHIJKLExample_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("a\"b(c)d,e:f;g<h>i[j\\k]l@example.com", ((string[])(null)));
@@ -363,7 +313,7 @@ this.EmailCannotBeMalformed("a\"b(c)d,e:f;g<h>i[j\\k]l@example.com", ((string[])
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, this is\"not\\allowed@example.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_ThisIsnotAllowedExample_Com()
+        public void EmailCannotBeMalformed_ThisIsnotAllowedExample_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("this is\"not\\allowed@example.com", ((string[])(null)));
@@ -372,7 +322,7 @@ this.EmailCannotBeMalformed("this is\"not\\allowed@example.com", ((string[])(nul
         
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, this\\ still\\\"not\\allowed@example.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_ThisStillNotAllowedExample_Com()
+        public void EmailCannotBeMalformed_ThisStillNotAllowedExample_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("this\\ still\\\"not\\allowed@example.com", ((string[])(null)));
@@ -382,7 +332,7 @@ this.EmailCannotBeMalformed("this\\ still\\\"not\\allowed@example.com", ((string
         [TechTalk.SpecRun.ScenarioAttribute("Email cannot be malformed, i_like_underscore@but_its_not_allowed_in_this_part.exa" +
             "mple.com", new string[] {
                 "automated"}, SourceLine=55)]
-        public virtual void EmailCannotBeMalformed_I_Like_UnderscoreBut_Its_Not_Allowed_In_This_Part_Example_Com()
+        public void EmailCannotBeMalformed_I_Like_UnderscoreBut_Its_Not_Allowed_In_This_Part_Example_Com()
         {
 #line 48
 this.EmailCannotBeMalformed("i_like_underscore@but_its_not_allowed_in_this_part.example.com", ((string[])(null)));
@@ -392,27 +342,17 @@ this.EmailCannotBeMalformed("i_like_underscore@but_its_not_allowed_in_this_part.
         [TechTalk.SpecRun.ScenarioAttribute("Phone Number must be between 11 and 21 characters - minimum allowed characters ch" +
             "eck", new string[] {
                 "automated"}, SourceLine=65)]
-        public virtual void PhoneNumberMustBeBetween11And21Characters_MinimumAllowedCharactersCheck()
+        public void PhoneNumberMustBeBetween11And21Characters_MinimumAllowedCharactersCheck()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phone Number must be between 11 and 21 characters - minimum allowed characters ch" +
-                    "eck", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "eck", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 66
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -441,28 +381,18 @@ this.ScenarioInitialize(scenarioInfo);
             "eck", new string[] {
                 "manual"}, SourceLine=72)]
         [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void PhoneNumberMustBeBetween11And21Characters_MaximumAllowedCharactersCheck()
+        public void PhoneNumberMustBeBetween11And21Characters_MaximumAllowedCharactersCheck()
         {
             string[] tagsOfScenario = new string[] {
                     "manual",
                     "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Phone Number must be between 11 and 21 characters - maximum allowed characters ch" +
-                    "eck", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "eck", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 73
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -489,26 +419,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [TechTalk.SpecRun.ScenarioAttribute("Subject cannot be blank", new string[] {
                 "automated"}, SourceLine=79)]
-        public virtual void SubjectCannotBeBlank()
+        public void SubjectCannotBeBlank()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject cannot be blank", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject cannot be blank", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 80
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -533,26 +453,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [TechTalk.SpecRun.ScenarioAttribute("Subject must be between 5 and 100 characters - minimum allowed characters check", new string[] {
                 "automated"}, SourceLine=86)]
-        public virtual void SubjectMustBeBetween5And100Characters_MinimumAllowedCharactersCheck()
+        public void SubjectMustBeBetween5And100Characters_MinimumAllowedCharactersCheck()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject must be between 5 and 100 characters - minimum allowed characters check", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject must be between 5 and 100 characters - minimum allowed characters check", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 87
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -579,27 +489,17 @@ this.ScenarioInitialize(scenarioInfo);
         [TechTalk.SpecRun.ScenarioAttribute("Subject must be between 5 and 100 characters - maximum allowed characters check", new string[] {
                 "manual"}, SourceLine=93)]
         [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void SubjectMustBeBetween5And100Characters_MaximumAllowedCharactersCheck()
+        public void SubjectMustBeBetween5And100Characters_MaximumAllowedCharactersCheck()
         {
             string[] tagsOfScenario = new string[] {
                     "manual",
                     "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject must be between 5 and 100 characters - maximum allowed characters check", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject must be between 5 and 100 characters - maximum allowed characters check", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 94
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -626,27 +526,17 @@ this.ScenarioInitialize(scenarioInfo);
         [TechTalk.SpecRun.ScenarioAttribute("Subject cannot contain only numeric or special characters", new string[] {
                 "manual"}, SourceLine=101)]
         [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void SubjectCannotContainOnlyNumericOrSpecialCharacters()
+        public void SubjectCannotContainOnlyNumericOrSpecialCharacters()
         {
             string[] tagsOfScenario = new string[] {
                     "manual",
                     "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject cannot contain only numeric or special characters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subject cannot contain only numeric or special characters", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 102
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -672,26 +562,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [TechTalk.SpecRun.ScenarioAttribute("Message cannot be blank", new string[] {
                 "automated"}, SourceLine=108)]
-        public virtual void MessageCannotBeBlank()
+        public void MessageCannotBeBlank()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message cannot be blank", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message cannot be blank", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 109
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -717,27 +597,17 @@ this.ScenarioInitialize(scenarioInfo);
         [TechTalk.SpecRun.ScenarioAttribute("Message must be between 20 and 2000 characters - minimum allowed characters check" +
             "", new string[] {
                 "automated"}, SourceLine=115)]
-        public virtual void MessageMustBeBetween20And2000Characters_MinimumAllowedCharactersCheck()
+        public void MessageMustBeBetween20And2000Characters_MinimumAllowedCharactersCheck()
         {
             string[] tagsOfScenario = new string[] {
                     "automated"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message must be between 20 and 2000 characters - minimum allowed characters check" +
-                    "", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 116
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -765,28 +635,18 @@ this.ScenarioInitialize(scenarioInfo);
             "", new string[] {
                 "manual"}, SourceLine=122)]
         [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void MessageMustBeBetween20And2000Characters_MaximumAllowedCharactersCheck()
+        public void MessageMustBeBetween20And2000Characters_MaximumAllowedCharactersCheck()
         {
             string[] tagsOfScenario = new string[] {
                     "manual",
                     "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message must be between 20 and 2000 characters - maximum allowed characters check" +
-                    "", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                    "", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 123
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
@@ -813,27 +673,17 @@ this.ScenarioInitialize(scenarioInfo);
         [TechTalk.SpecRun.ScenarioAttribute("Message cannot contain only numeric or special characterst", new string[] {
                 "manual"}, SourceLine=130)]
         [TechTalk.SpecRun.IgnoreAttribute()]
-        public virtual void MessageCannotContainOnlyNumericOrSpecialCharacterst()
+        public void MessageCannotContainOnlyNumericOrSpecialCharacterst()
         {
             string[] tagsOfScenario = new string[] {
                     "manual",
                     "ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message cannot contain only numeric or special characterst", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message cannot contain only numeric or special characterst", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 131
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
                 testRunner.SkipScenario();
             }
