@@ -33,7 +33,7 @@ namespace QA.Contribution.Test.Journey
 
         public static IWebElement GetClickableElement(this IWebDriver driver, By by)
         {
-            return new WebDriverWait(driver, TimeSpan.FromSeconds(120))
+            return new WebDriverWait(driver, TimeSpan.FromSeconds(15))
             .Until(ExpectedConditions.ElementToBeClickable(by));
         }
 
