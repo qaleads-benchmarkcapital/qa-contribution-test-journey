@@ -38,6 +38,16 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterMessage();
         }
 
+        [When("the customer types a short string into the phone number field")]
+        public void WhenTheCustomerEntersBasicMessageShortPhoneNumber()
+        {
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterShortPhone();
+            _contactUsPage.EnterSubject();
+            _contactUsPage.EnterMessage();
+        }
+
         [When("the customer enters a Basic Message")]
         public void WhenTheCustomerEntersBasicMessage()
         {
@@ -80,7 +90,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
 
-        [Then("the customer is informed of the blank phone validation error")]
+        [Then("the customer is informed of the phone validation error")]
         public void ThenTheCustomerIsInformedOfTheBlankPhoneValidationError()
         {
             var message = _contactUsPage.GetErrorMessage();
@@ -104,7 +114,11 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When(@"the customer completes a Basic Message with a malformed email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
+            _contactUsPage.EnterName();
             _contactUsPage.EnterInvalidEmailAddress();
+            _contactUsPage.EnterPhone();
+            _contactUsPage.EnterSubject();
+            _contactUsPage.EnterMessage();
             _contactUsPage.EnterMessage();
         }
     }
