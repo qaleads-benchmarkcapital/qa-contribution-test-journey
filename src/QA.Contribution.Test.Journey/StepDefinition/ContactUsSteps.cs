@@ -29,7 +29,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer types an empty string into the phone number field")]
         public void WhenTheCustomerEntersBasicMessageBlankPhoneNumber()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.EnterPhone("blank");
             _contactUsPage.EnterSubject("valid");
@@ -39,7 +39,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer types a long string into the phone number field")]
         public void WhenTheCustomerEntersBasicMessageLongPhoneNumber()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.EnterPhone("long");
             _contactUsPage.EnterSubject("valid");
@@ -49,7 +49,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer types a short string into the phone number field")]
         public void WhenTheCustomerEntersBasicMessageShortPhoneNumber()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.EnterPhone("short");
             _contactUsPage.EnterSubject("valid");
@@ -59,7 +59,17 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer enters a Basic Message")]
         public void WhenTheCustomerEntersBasicMessage()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterPhone("valid");
+            _contactUsPage.EnterSubject("valid");
+            _contactUsPage.EnterMessage();
+        }
+
+        [When("the customer types a empty string into the name field")]
+        public void WhenTheCustomerEntersBasicMessageBlankName()
+        {
+            _contactUsPage.EnterName("blank");
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.EnterPhone("valid");
             _contactUsPage.EnterSubject("valid");
@@ -69,7 +79,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer types an empty string into the subject field")]
         public void WhenTheCustomerEntersBasicMessageEmptySubject()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.EnterPhone("valid");
             _contactUsPage.EnterSubject("blank");
@@ -79,7 +89,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When("the customer types a short string into the subject field")]
         public void WhenTheCustomerEntersBasicMessageShortSubject()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
             _contactUsPage.EnterEmailAddress();
             _contactUsPage.EnterPhone("valid");
             _contactUsPage.EnterSubject("short");
@@ -118,8 +128,16 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
 
+        [Then("the customer is informed of the name validation error")]
+        public void ThenTheCustomerIsInformedOfTheNameValidationError()
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
+        }
+
+
         [Then("the customer is informed of the subject validation error")]
-        public void ThenTheCustomerIsInformedOfThesubjectValidationError()
+        public void ThenTheCustomerIsInformedOfTheSubjectValidationError()
         {
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
@@ -149,7 +167,7 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [When(@"the customer completes a Basic Message with a malformed email address")]
         public void WhenTheCustomerCompletesATechincalSupportRequestWithAMalformedEmailAddress()
         {
-            _contactUsPage.EnterName();
+            _contactUsPage.EnterName("valid");
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.EnterPhone("valid");
             _contactUsPage.EnterSubject("valid");

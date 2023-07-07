@@ -17,7 +17,16 @@
 	Long Phone Number - More than 22 digits
 	Blank Subject - An empty string
 	Short Subject - Less than 5 Characters 
+	Blank Name - An empty string
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain
+
+
+Scenario: The one where the customer submits a Blank Name
+	Given the Contact Us page is displayed
+	When the customer types a empty string into the name field
+	And the customer submits the message
+	Then the message is not submitted successfully
+	And the customer is informed of the name validation error
 
 Scenario: The one where the customer submits a Short Subject
 	Given the Contact Us page is displayed

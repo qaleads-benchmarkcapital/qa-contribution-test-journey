@@ -118,13 +118,28 @@ namespace QA.Contribution.Test.Journey.Page
 
         }
 
-        public string EnterName()
+        public string EnterName(string type)
         {
-            var name = Faker.Name.FullName();
-            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
-            nameField.Clear();
-            nameField.SendKeys(name);
-            return name;
+            if (type == "valid")
+            {
+                var name = Faker.Name.FullName();
+                var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+                nameField.Clear();
+                nameField.SendKeys(name);
+                return name;
+            }
+
+            if (type == "blank")
+            {
+                var name = string.Empty;
+                var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+                nameField.Clear();
+                nameField.SendKeys(name);
+                return name;
+            }
+
+            return null;
+
         }
 
         public string EnterSubject(string type)
