@@ -13,6 +13,13 @@
 	Basic Message - A message that can be submitted.
 	Invalid Email Address -  An empty string
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain
+	Invalid message - An empty string
+	Invalid phone number - An empty string
+	Invalid subject - An empty string
+	Malformed phone number - A phone number that does not validate as a phone number, e.g <11 characters
+	Malformed Subject - A subject that does not validate as a subject, eg. <5 characters
+	Malformed message - A message that does not validate as a message, e.g <20 characters
+
 
 Scenario: The one where the customer successfully submits a Basic Message
 	Given the Contact Us page is displayed
@@ -23,14 +30,43 @@ Scenario: The one where the customer successfully submits a Basic Message
 @refactor
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
-	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
+	When the customer completes a Basic Message with an invalid email address
 	And the customer submits the message
-	Then the message is not submitted successfully
-	And the customer is informed of the email validation error
+	Then the user is presented with the correct validation message
 
 @failing
 Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message with a malformed email address
+	And the customer submits the message
+	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides an invalid message
+	Given the Contact Us page is displayed
+	When the customer completes an invalid message
+	And the customer submits the message
+	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides an invalid phone number
+	Given the Contact Us page is displayed
+	When the customer completes a Basic Message with an invalid phone number
+	And the customer submits the message
+	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides a malformed phone number
+	Given the Contact Us page is displayed
+	When the customer completes a Basic Message with a malformed phone number
+	And the customer submits the message
+	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides a malformed message
+	Given the Contact Us page is displayed
+	When the customer completes a Basic Message with a malformed message
+	And the customer submits the message
+	Then the user is presented with the correct validation message
+
+Scenario: The one where the customer provides a malformed subject
+	Given the Contact Us page is displayed
+	When the customer completes a Basic Message with a malformed subject
+	And the customer submits the message
 	Then the user is presented with the correct validation message

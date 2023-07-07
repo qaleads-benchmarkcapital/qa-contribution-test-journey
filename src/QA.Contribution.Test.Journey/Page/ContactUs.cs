@@ -96,5 +96,26 @@ namespace QA.Contribution.Test.Journey.Page
             nameField.SendKeys(name);
             return name;
         }
+
+        public void ClearPhoneNumber()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            emailField.Clear();
+        }
+
+        public void ClearMessage()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_messageLocator));
+            emailField.Clear();
+        }
+
+        public string EnterMalformedPhone()
+        {
+            var phoneNumber = Faker.Lorem.GetFirstWord();
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+            phoneField.SendKeys(phoneNumber);
+            return phoneNumber;
+        }
     }
 }
