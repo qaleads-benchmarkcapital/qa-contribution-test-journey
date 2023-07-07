@@ -53,6 +53,11 @@ Scenario: The one where the customer successfully submits a Basic Message
 	And the customer submits the message
 	Then the message is successfully submitted
 
+@manual@ignore
+Scenario: The one where the customer clicks Book This Room
+	Given the Contact Us page is displayed
+	When the customer clicks Book This Room
+	Then the calander is successfully displayed
 
 @refactor
 Scenario: The one where the customer provides an invalid email address
