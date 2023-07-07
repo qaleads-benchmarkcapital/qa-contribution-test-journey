@@ -17,6 +17,14 @@
 	Long Phone Number - More than 22 digits
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain
 
+Scenario: The one where the customer submits a blank Subject
+	Given the Contact Us page is displayed
+	When the customer types an empty string into the subject field
+	And the customer submits the message
+	Then the message is not submitted successfully
+	And the customer is informed of the subject validation error
+
+
 Scenario: The one where the customer submits a Long Phone Number
 	Given the Contact Us page is displayed
 	When the customer types a long string into the phone number field
@@ -45,6 +53,7 @@ Scenario: The one where the customer successfully submits a Basic Message
 	And the customer submits the message
 	Then the message is successfully submitted
 
+
 @refactor
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
@@ -58,4 +67,4 @@ Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message with a malformed email address
 	And the customer submits the message
-	Then the user is presented with the correct validation message
+	Then the customer is presented with the correct validation message
