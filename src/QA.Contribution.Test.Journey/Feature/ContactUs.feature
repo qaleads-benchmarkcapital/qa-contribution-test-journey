@@ -13,8 +13,17 @@
 	Basic Message - A message that can be submitted.
 	Invalid Email Address -  An empty string
 	Blank Phone Number - An empty string
-	Short Phone Number - less than 11 characters
+	Short Phone Number - Less than 11 digits
+	Long Phone Number - More than 22 digits
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain
+
+Scenario: The one where the customer submits a Long Phone Number
+	Given the Contact Us page is displayed
+	When the customer types a long string into the phone number field
+	And the customer submits the message
+	Then the message is not submitted successfully
+	And the customer is informed of the phone validation error
+
 
 Scenario: The one where the customer submits a Blank Phone Number
 	Given the Contact Us page is displayed
@@ -40,7 +49,6 @@ Scenario: The one where the customer successfully submits a Basic Message
 Scenario: The one where the customer provides an invalid email address
 	Given the Contact Us page is displayed
 	When the customer types an empty string into the email address field
-	And the user types a message into the message body field
 	And the customer submits the message
 	Then the message is not submitted successfully
 	And the customer is informed of the email validation error

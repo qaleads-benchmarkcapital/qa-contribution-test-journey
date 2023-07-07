@@ -79,6 +79,15 @@ namespace QA.Contribution.Test.Journey.Page
             phoneField.SendKeys(phoneNumber);
             return phoneNumber;
         }
+
+        public string EnterLongPhone()
+        {
+            var phoneNumber = "123456712314548412";
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+            phoneField.SendKeys(phoneNumber);
+            return phoneNumber;
+        }
         public string EnterBlankPhone()
         {
             var phoneNumber = string.Empty;

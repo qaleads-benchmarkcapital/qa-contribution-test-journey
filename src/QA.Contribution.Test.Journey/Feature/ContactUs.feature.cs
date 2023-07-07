@@ -33,7 +33,8 @@ namespace QA.Contribution.Test.Journey.Feature
 	Basic Message - A message that can be submitted.
 	Invalid Email Address -  An empty string
 	Blank Phone Number - An empty string
-	Short Phone Number - less than 11 characters
+	Short Phone Number - Less than 11 digits
+	Long Phone Number - More than 22 digits
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain", SourceFile="Feature\\ContactUs.feature", SourceLine=0)]
     public partial class ContactUsFeature
     {
@@ -63,7 +64,8 @@ namespace QA.Contribution.Test.Journey.Feature
 	Basic Message - A message that can be submitted.
 	Invalid Email Address -  An empty string
 	Blank Phone Number - An empty string
-	Short Phone Number - less than 11 characters
+	Short Phone Number - Less than 11 digits
+	Long Phone Number - More than 22 digits
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -100,13 +102,58 @@ namespace QA.Contribution.Test.Journey.Feature
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer submits a Blank Phone Number", SourceLine=18)]
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer submits a Long Phone Number", SourceLine=19)]
+        public virtual void TheOneWhereTheCustomerSubmitsALongPhoneNumber()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer submits a Long Phone Number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 20
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 21
+ testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 22
+ testRunner.When("the customer types a long string into the phone number field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 23
+ testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 24
+ testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 25
+ testRunner.And("the customer is informed of the phone validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer submits a Blank Phone Number", SourceLine=27)]
         public virtual void TheOneWhereTheCustomerSubmitsABlankPhoneNumber()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer submits a Blank Phone Number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 19
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -126,32 +173,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 20
+#line 29
  testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 30
  testRunner.When("the customer types an empty string into the phone number field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 31
  testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 23
+#line 32
  testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 24
+#line 33
  testRunner.And("the customer is informed of the phone validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer submits a Short Phone Number", SourceLine=25)]
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer submits a Short Phone Number", SourceLine=34)]
         public virtual void TheOneWhereTheCustomerSubmitsAShortPhoneNumber()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer submits a Short Phone Number", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 26
+#line 35
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -171,32 +218,32 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 27
+#line 36
  testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 28
+#line 37
  testRunner.When("the customer types a short string into the phone number field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 29
+#line 38
  testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 30
+#line 39
  testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 31
+#line 40
  testRunner.And("the customer is informed of the phone validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer successfully submits a Basic Message", SourceLine=32)]
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer successfully submits a Basic Message", SourceLine=41)]
         public virtual void TheOneWhereTheCustomerSuccessfullySubmitsABasicMessage()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer successfully submits a Basic Message", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 33
+#line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -216,16 +263,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 34
+#line 43
  testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 35
+#line 44
  testRunner.When("the customer enters a Basic Message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 36
+#line 45
  testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 37
+#line 46
  testRunner.Then("the message is successfully submitted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -233,63 +280,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides an invalid email address", new string[] {
-                "refactor"}, SourceLine=39)]
+                "refactor"}, SourceLine=48)]
         public virtual void TheOneWhereTheCustomerProvidesAnInvalidEmailAddress()
         {
             string[] tagsOfScenario = new string[] {
                     "refactor"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides an invalid email address", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 40
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 41
- testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 42
- testRunner.When("the customer types an empty string into the email address field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 43
- testRunner.And("the user types a message into the message body field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 44
- testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 45
- testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 46
- testRunner.And("the customer is informed of the email validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides a malformed email address", new string[] {
-                "failing"}, SourceLine=48)]
-        public virtual void TheOneWhereTheCustomerProvidesAMalformedEmailAddress()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "failing"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides a malformed email address", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 49
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -314,12 +311,59 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 51
- testRunner.When("the customer completes a Basic Message with a malformed email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the customer types an empty string into the email address field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 52
  testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 53
+ testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 54
+ testRunner.And("the customer is informed of the email validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The one where the customer provides a malformed email address", new string[] {
+                "failing"}, SourceLine=56)]
+        public virtual void TheOneWhereTheCustomerProvidesAMalformedEmailAddress()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "failing"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer provides a malformed email address", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 57
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 58
+ testRunner.Given("the Contact Us page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 59
+ testRunner.When("the customer completes a Basic Message with a malformed email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 60
+ testRunner.And("the customer submits the message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 61
  testRunner.Then("the user is presented with the correct validation message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
