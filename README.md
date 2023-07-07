@@ -85,25 +85,29 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+Task 1 - ~20mins
+Task 2 - ~30mins
+Task 3 - ~30mins
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+I initially began task 3 by fixing the existing steps to include the "contactpage.clicksend". I also built the additional tests from test 1 in this manner. Whilst the tests passed I realised that it would be clearer to use the existing step for clicking send.
+I also added to the glossary in the feature as a way of defining the intention but I wasn't sure if I was supposed to do this.
+When considering Task 1, I noticed that the feature description only mentioned email and message as mandatory. It also mentions the customer sending a 'valid' phone number but doesn't state whether it (or other fields like 'subject' should be mandatory or have any extra validation. I wasn't sure if this was intentional, in that perhaps I was supposed to edit the description?
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 1 - I think I would come up with some more scenarios with more time however I tried to keep the tests in keeping with what was already there whilst considering the main feature requirement. I found it the easiest as it's similar to what I know and do currently.
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+In truth I didn't find any task particularly difficult. The difficult part for me was the initial setup and familiarising myself with what each step was doing. Despite feeling a little lost initially I really enjoyed working it out.
 ```
 
 ### Submitting your test response

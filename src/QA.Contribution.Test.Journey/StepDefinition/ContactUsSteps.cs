@@ -39,11 +39,12 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.ClickSend();
         }
 
-        [When("the customer types an empty string into the email address field")]
+        [When("the customer completes a Basic Message with an invalid email address")]
         public void WhenTheCustomerTypesAnEmptyStringIntoTheEmailAddressField()
         {
             _contactUsPage.ClearEmailAddress();
-        }
+            _contactUsPage.EnterMessage();
+                 }
         
         [When("the user types a message into the message body field")]
         public void WhenTheUserTypesThisIsAMessageIntoTheMessageBodyField()
@@ -84,6 +85,25 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         {
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.EnterMessage();
+        }
+
+        [When(@"the customer completes an invalid message")]
+        public void WhenTheCustomerCompletesAnInvalidMessage()
+        {
+            _contactUsPage.ClearMessage();
+        }
+
+        [When(@"the customer completes a Basic Message with an invalid phone number")]
+        public void WhenTheCustomerCompletesATechnicalSupportRequestWithAnInvalidPhoneNumber()
+        {
+            _contactUsPage.ClearPhoneNumber();
+        }
+
+        [When(@"the customer completes a Basic Message with a malformed phone number")]
+        public void WhenTheCustomerCompletesATechnicalSupportRequestWithAMalformedPhoneNumber()
+        {
+            _contactUsPage.ClearPhoneNumber();
+            _contactUsPage.EnterMalformedPhone();
         }
     }
 }
