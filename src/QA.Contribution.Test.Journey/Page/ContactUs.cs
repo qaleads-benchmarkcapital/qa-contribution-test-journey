@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
-
+using System;
+using System.Text;
 using TechTalk.SpecFlow;
 
 namespace QA.Contribution.Test.Journey.Page
@@ -18,6 +19,9 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _successLocator = "//*[text()='as soon as possible.']";
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
+
+        private static Random random = new Random();
+
 
         public string ClickSend()
         {
@@ -70,31 +74,120 @@ namespace QA.Contribution.Test.Journey.Page
             return successAlert.Text;
         }
 
-        public string EnterPhone()
+        public string EnterPhone(string type)
         {
-            var phoneNumber = Faker.Phone.Number();
-            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
-            phoneField.Clear();
-            phoneField.SendKeys(phoneNumber);
-            return phoneNumber;
+            if (type == "valid")
+            {
+                var phoneNumber = Faker.Phone.Number();
+                var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+                phoneField.Clear();
+                phoneField.SendKeys(phoneNumber);
+                return phoneNumber;
+            }
+
+            if (type == "blank")
+            {
+                var phoneNumber = string.Empty;
+                var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+                phoneField.Clear();
+                phoneField.SendKeys(phoneNumber);
+                return phoneNumber;
+
+            }
+
+            if (type == "long")
+            {
+                var phoneNumber = GeneratePhoneNumber(23);
+                var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+                phoneField.Clear();
+                phoneField.SendKeys(phoneNumber);
+                return phoneNumber; 
+            }
+
+
+            if (type == "short")
+            {
+                var phoneNumber = GeneratePhoneNumber(7);
+                var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+                phoneField.Clear();
+                phoneField.SendKeys(phoneNumber);
+                return phoneNumber;
+            }
+
+            return null;
+
         }
 
-        public string EnterName()
+        public string EnterName(string type)
         {
-            var name = Faker.Name.FullName();
-            var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
-            nameField.Clear();
-            nameField.SendKeys(name);
-            return name;
+            if (type == "valid")
+            {
+                var name = Faker.Name.FullName();
+                var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+                nameField.Clear();
+                nameField.SendKeys(name);
+                return name;
+            }
+
+            if (type == "blank")
+            {
+                var name = string.Empty;
+                var nameField = Driver.GetClickableElement(By.XPath(_nameLocator));
+                nameField.Clear();
+                nameField.SendKeys(name);
+                return name;
+            }
+
+            return null;
+
         }
 
-        public string EnterSubject()
+        public string EnterSubject(string type)
         {
-            var name = Faker.Lorem.GetFirstWord();
-            var nameField = Driver.GetClickableElement(By.XPath(_subjectLocator));
-            nameField.Clear();
-            nameField.SendKeys(name);
-            return name;
+            if (type == "valid")
+            {
+                var subject = Faker.Lorem.GetFirstWord();
+                var subjectField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+                subjectField.Clear();
+                subjectField.SendKeys(subject);
+                return subject;
+            }
+
+            if (type == "blank")
+            {
+                var subject = string.Empty;
+                var subjectField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+                subjectField.Clear();
+                subjectField.SendKeys(subject);
+                return subject;
+            }
+
+            if (type == "short")
+            {
+                var subject = Faker.Lorem.GetFirstWord().Substring(0, 3);
+                var subjectField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+                subjectField.Clear();
+                subjectField.SendKeys(subject);
+                return subject;
+            }
+
+            return null;
+
+
+        }
+
+
+
+        private static string GeneratePhoneNumber(int length)
+        {
+            StringBuilder phoneNumber = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+            {
+                phoneNumber.Append(random.Next(0, 10));
+            }
+
+            return phoneNumber.ToString();
         }
     }
 }

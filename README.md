@@ -85,25 +85,25 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+Task 1 : 1.5 hours, Task 2 : 10min, Task 3 : 30mins
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+I have used one method for entering the phone number that takes multiple overload that would be used for multiple scenarios
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 2 
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Task 1 : it took the longest amount of time to cover as many scenarios as possible 
 ```
 
 ### Submitting your test response
