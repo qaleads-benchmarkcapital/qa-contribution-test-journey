@@ -76,6 +76,16 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterMessage();
         }
 
+        [When("the customer types a short string into the subject field")]
+        public void WhenTheCustomerEntersBasicMessageShortSubject()
+        {
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterPhone("valid");
+            _contactUsPage.EnterSubject("short");
+            _contactUsPage.EnterMessage();
+        }
+
         [When("the customer submits the message")]
         public void WhenTheCustomerSubmitsTheMessage()
         {
