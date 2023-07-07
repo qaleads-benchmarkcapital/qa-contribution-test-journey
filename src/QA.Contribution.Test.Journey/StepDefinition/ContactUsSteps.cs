@@ -119,7 +119,6 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterPhone();
             _contactUsPage.EnterSubject();
             _contactUsPage.EnterMessage();
-            _contactUsPage.EnterMessage();
         }
     }
 }
