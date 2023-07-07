@@ -79,7 +79,14 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             var message = _contactUsPage.GetErrorMessage();
             Assert.IsFalse(string.IsNullOrEmpty(message));
         }
-        
+
+        [Then("the customer is informed of the blank phone validation error")]
+        public void ThenTheCustomerIsInformedOfTheBlankPhoneValidationError()
+        {
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsFalse(string.IsNullOrEmpty(message));
+        }
+
         [Then("the customer is informed of the email validation error")]
         public void ThenTheCustomerIsInformedOfTheEmailValidationError()
         {

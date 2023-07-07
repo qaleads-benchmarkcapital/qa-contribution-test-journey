@@ -20,7 +20,7 @@ Scenario: The one where the customer submits a Blank Phone Number
 	When the customer types an empty string into the phone number field
 	And the customer submits the message
 	Then the message is not submitted successfully
-	And the customer is informed of the phone validation error
+	And the customer is informed of the blank phone validation error
 
 Scenario: The one where the customer successfully submits a Basic Message
 	Given the Contact Us page is displayed

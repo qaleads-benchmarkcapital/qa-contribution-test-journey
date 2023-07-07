@@ -18,6 +18,7 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _successLocator = "//*[text()='as soon as possible.']";
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
+        private readonly string _blankPhoneErrorMessage = "Phone Can Not Be Blank";
 
         public string ClickSend()
         {
@@ -56,6 +57,12 @@ namespace QA.Contribution.Test.Journey.Page
             messageField.Clear();
             messageField.SendKeys(message);
             return message;
+        }
+
+        public string GetBlankPhoneErrorMessage()
+        {
+            var blankPhoneError = Driver.GetClickableElement(By.XPath(_blankPhoneErrorMessage));
+            return blankPhoneError.Text;
         }
 
         public string GetErrorMessage()
