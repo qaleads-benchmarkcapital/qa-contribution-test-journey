@@ -2,6 +2,8 @@
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QA.Contribution.Test.Journey.Page;
+using Faker;
+using Google.Protobuf.WellKnownTypes;
 
 namespace QA.Contribution.Test.Journey.StepDefinition
 {
@@ -11,16 +13,29 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         private Landing _landingPage;
         private ContactUs _contactUsPage;
 
+        private string _blankPhoneNumber;
+
         public ContactUsSteps(ScenarioContext scenarioContext)
         {
             _landingPage = new Landing(scenarioContext);
             _contactUsPage = new ContactUs(scenarioContext);
+            _blankPhoneNumber = string.Empty;
         }
 
         [Given("the Contact Us page is displayed")]
         public void GivenTheContactUsPageIsDisplayed()
         {
             _landingPage.Navigate();
+        }
+
+        [When("the customer types an empty string into the phone number field")]
+        public void WhenTheCustomerEntersBasicMessageBlankPhoneNumber()
+        {
+            _contactUsPage.EnterName();
+            _contactUsPage.EnterEmailAddress();
+            _contactUsPage.EnterBlankPhone();
+            _contactUsPage.EnterSubject();
+            _contactUsPage.EnterMessage();
         }
 
         [When("the customer enters a Basic Message")]

@@ -12,7 +12,15 @@
 	Glossary:
 	Basic Message - A message that can be submitted.
 	Invalid Email Address -  An empty string
+	Blank Phone Number - An empty string
 	Malformed Email Address - An email address that does not validate as an email address, e.g. missing domain
+
+Scenario: The one where the customer submits a Blank Phone Number
+	Given the Contact Us page is displayed
+	When the customer types an empty string into the phone number field
+	And the customer submits the message
+	Then the message is not submitted successfully
+	And the customer is informed of the phone validation error
 
 Scenario: The one where the customer successfully submits a Basic Message
 	Given the Contact Us page is displayed

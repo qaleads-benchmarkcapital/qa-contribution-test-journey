@@ -70,6 +70,15 @@ namespace QA.Contribution.Test.Journey.Page
             return successAlert.Text;
         }
 
+        public string EnterBlankPhone()
+        {
+            var phoneNumber = string.Empty;
+            var phoneField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            phoneField.Clear();
+            phoneField.SendKeys(phoneNumber);
+            return phoneNumber;
+        }
+
         public string EnterPhone()
         {
             var phoneNumber = Faker.Phone.Number();
