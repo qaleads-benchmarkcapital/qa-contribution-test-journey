@@ -85,25 +85,36 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-Test Insert
+Task 1 - This took about an hour.
+Task 2 - Already completed when doing Task 1
+Task 3 - 12 mins
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
 
 ```
-<Insert your answer here>
+I had to make some assumptions regarding the validations. Since the application errored when fields were not populated. 
+This was not included in the original feature, but made sense to me that all fields would be expected. 
+I would have updated the feature to include this - although not in the feature file. 
+I would first check with the team to see if this was omitted or intentional behaviour.
+I noticed that 'must be a well-formed email address' is not capitalised - I would refer this to a developer for consistency
+and subsequently change the test.
+My approach has been to use Scenario Outline - although less simple, I would expect stakeholders to understand the use of examples.
 ```
 
 3.  Which of the tasks did you find was the easiest for you to complete, why :question:
 
 ```
-<Insert your answer here>
+Task 2 - Already done in Task 1.
 ```
 
 4. Which of the tasks did you find was the most difficult for you to complete, why :question:
  
 ```
-<Insert your answer here>
+Task 3 - Tricky since I could not get tests running in my browser to allow me to see where it was failing. 
+I changed the chromedriver version (to not avail), but I suspect there is something I'm missing in the .Net setup since dotnet.exe is all that is run.
+I chose to use /p[1] rather than iterate using GetElements - since this was not in the extensions
+Also Git - admittedly a slight weakness, but I found the Github desktop so easy to pick up and use for the first time. 
 ```
 
 ### Submitting your test response

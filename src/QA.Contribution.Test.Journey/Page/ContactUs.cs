@@ -15,6 +15,7 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _submitMessageLocator = "//*[@id='submitContact']";
         private readonly string _subjectLocator = "//*[@id='subject']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
+        private readonly string _errorReasonLocator = "//*[@class='alert alert-danger']/p[1]";
         private readonly string _successLocator = "//*[text()='as soon as possible.']";
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
@@ -84,6 +85,12 @@ namespace QA.Contribution.Test.Journey.Page
         public string GetErrorMessage()
         {
             var errorAlert = Driver.GetClickableElement(By.XPath(_errorLocator));
+            return errorAlert.Text;
+        }
+
+        public string GetFirstErrorMessage()
+        {
+            var errorAlert = Driver.GetClickableElement(By.XPath(_errorReasonLocator));
             return errorAlert.Text;
         }
 

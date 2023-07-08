@@ -120,14 +120,14 @@ namespace QA.Contribution.Test.Journey.StepDefinition
         [Then(@"the customer is informed of the '([^']*)' validation error")]
         public void ThenTheCustomerIsInformedOfTheValidationError(string expectedResponse)
         {
-            var message = _contactUsPage.GetErrorMessage();
-            Assert.IsTrue(message.Contains(expectedResponse));
+            var message = _contactUsPage.GetFirstErrorMessage();
+            Assert.IsTrue(message.Equals(expectedResponse));
         }
 
         [When(@"the '([^']*)' is '([^']*)' characters long")]
         public void WhenTheIsCharactersLong(string fieldName, string length)
         {
-            throw new PendingStepException();
+            ScenarioContext.StepIsPending();
         }
     }
 }
