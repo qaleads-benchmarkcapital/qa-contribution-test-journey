@@ -41,10 +41,10 @@ Scenario Outline: The one where the customer omits to enter an optional field
 	When the customer enters a Basic Message
 	But omits the 'field name' field
 	Then the message is not submitted successfully
-	And the customer is informed of the 'expected response' validation error
+	And the customer is informed of the 'expected' validation error
 
 	Examples: 
-	| field name    | expected response         |
+	| field name    | expected                 |
 	| Email Address | Email may not be blank   |
 	| Message       | Message may not be blank |
 	| Subject       | Subject may not be blank |
@@ -58,10 +58,10 @@ Scenario Outline: The one where the customer enters too few or too many characte
 	When the customer enters a Basic Message
 	But the 'field name' is 'length' characters long
 		Then the message is not submitted successfully
-	And the customer is informed of the 'expected response' validation error
+	And the customer is informed of the 'expected' validation error
 
 	Examples: 
-	| field name   | length | reason    | expected response                               |
+	| field name   | length | reason    | expected                                       |
 	| Message      | 19     | too short | Message must be between 20 and 2000 characters |
 	| Message      | 2001   | too long  | Message must be between 20 and 2000 characters |
 	| Subject      | 4      | too short | Subject must be between 5 and 100 characters   |

@@ -229,7 +229,7 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        public virtual void TheOneWhereTheCustomerOmitsToEnterAnOptionalField(string fieldName, string response, string[] exampleTags)
+        public virtual void TheOneWhereTheCustomerOmitsToEnterAnOptionalField(string fieldName, string expected, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "task1"};
@@ -240,7 +240,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("field name", fieldName);
-            argumentsOfScenario.Add("response", response);
+            argumentsOfScenario.Add("expected", expected);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer omits to enter an optional field", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 39
 this.ScenarioInitialize(scenarioInfo);
@@ -275,7 +275,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 44
- testRunner.And("the customer is informed of the \'field name\' validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the customer is informed of the \'expected\' validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -326,7 +326,7 @@ this.TheOneWhereTheCustomerOmitsToEnterAnOptionalField("Phone number", "Phone ma
 #line hidden
         }
         
-        public virtual void TheOneWhereTheCustomerEntersTooFewOrTooManyCharacters(string fieldName, string length, string reason, string response, string[] exampleTags)
+        public virtual void TheOneWhereTheCustomerEntersTooFewOrTooManyCharacters(string fieldName, string length, string reason, string expected, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "task1",
@@ -340,7 +340,7 @@ this.TheOneWhereTheCustomerOmitsToEnterAnOptionalField("Phone number", "Phone ma
             argumentsOfScenario.Add("field name", fieldName);
             argumentsOfScenario.Add("length", length);
             argumentsOfScenario.Add("reason", reason);
-            argumentsOfScenario.Add("response", response);
+            argumentsOfScenario.Add("expected", expected);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The one where the customer enters too few or too many characters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 56
 this.ScenarioInitialize(scenarioInfo);
@@ -375,7 +375,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.Then("the message is not submitted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 61
- testRunner.And("the customer is informed of the \'field name\' validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the customer is informed of the \'expected\' validation error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
