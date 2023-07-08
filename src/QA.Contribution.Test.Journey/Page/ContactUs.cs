@@ -15,6 +15,7 @@ namespace QA.Contribution.Test.Journey.Page
         private readonly string _submitMessageLocator = "//*[@id='submitContact']";
         private readonly string _subjectLocator = "//*[@id='subject']";
         private readonly string _errorLocator = "//*[@class='alert alert-danger']";
+        private readonly string _errorReasonLocator = "//*[@class='alert alert-danger']/p[1]";
         private readonly string _successLocator = "//*[text()='as soon as possible.']";
         private readonly string _nameLocator = "//*[@id='name']";
         private readonly string _phoneLocator = "//*[@id='phone']";
@@ -49,6 +50,29 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.Clear();
         }
 
+        public void ClearMessage()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_messageLocator));
+            emailField.Clear();
+        }
+
+        public void ClearSubject()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+            emailField.Clear();
+        }
+        public void ClearPhoneNumber()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            emailField.Clear();
+        }
+
+        public void ClearName()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            emailField.Clear();
+        }
+
         public string EnterMessage()
         {
             var message = Faker.Lorem.Paragraph();
@@ -61,6 +85,12 @@ namespace QA.Contribution.Test.Journey.Page
         public string GetErrorMessage()
         {
             var errorAlert = Driver.GetClickableElement(By.XPath(_errorLocator));
+            return errorAlert.Text;
+        }
+
+        public string GetFirstErrorMessage()
+        {
+            var errorAlert = Driver.GetClickableElement(By.XPath(_errorReasonLocator));
             return errorAlert.Text;
         }
 

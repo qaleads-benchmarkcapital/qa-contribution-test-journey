@@ -85,5 +85,49 @@ namespace QA.Contribution.Test.Journey.StepDefinition
             _contactUsPage.EnterInvalidEmailAddress();
             _contactUsPage.EnterMessage();
         }
+
+        [When(@"omits the '([^']*)' field")]
+        public void WhenOmitsTheField(string fieldName)
+        {
+            switch (fieldName)
+            {
+                case "Email Address":
+                    _contactUsPage.ClearEmailAddress();
+                    break;
+
+                case "Message":
+                    _contactUsPage.ClearMessage();
+                    break;
+
+                case "Subject":
+                    _contactUsPage.ClearSubject();
+                    break;
+
+                case "Name":
+                    _contactUsPage.ClearName();
+                    break;
+
+                case "Phone number":
+                    _contactUsPage.ClearPhoneNumber();
+                    break;
+
+                default:
+                    Assert.Fail("This fieldName cannot be cleared: " + fieldName);
+                    break;
+            }
+        }
+
+        [Then(@"the customer is informed of the '([^']*)' validation error")]
+        public void ThenTheCustomerIsInformedOfTheValidationError(string expectedResponse)
+        {
+            var message = _contactUsPage.GetFirstErrorMessage();
+            Assert.IsTrue(message.Equals(expectedResponse));
+        }
+
+        [When(@"the '([^']*)' is '([^']*)' characters long")]
+        public void WhenTheIsCharactersLong(string fieldName, string length)
+        {
+            ScenarioContext.StepIsPending();
+        }
     }
 }
