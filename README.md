@@ -85,7 +85,7 @@ Please edit `README.md` with answers to the following questions:
 1. How long did each of the tasks take you to complete, roughly :question:
 
 ```
-<Insert your answer here>
+Test Insert
 ```
 
 2. In reviewing the base solution provided to you by us, is there anything you would have done differently :question:
