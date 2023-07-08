@@ -49,6 +49,29 @@ namespace QA.Contribution.Test.Journey.Page
             emailField.Clear();
         }
 
+        public void ClearMessage()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_messageLocator));
+            emailField.Clear();
+        }
+
+        public void ClearSubject()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_subjectLocator));
+            emailField.Clear();
+        }
+        public void ClearPhoneNumber()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_phoneLocator));
+            emailField.Clear();
+        }
+
+        public void ClearName()
+        {
+            var emailField = Driver.GetClickableElement(By.XPath(_nameLocator));
+            emailField.Clear();
+        }
+
         public string EnterMessage()
         {
             var message = Faker.Lorem.Paragraph();

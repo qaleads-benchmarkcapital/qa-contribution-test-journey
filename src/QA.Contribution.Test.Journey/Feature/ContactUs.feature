@@ -41,29 +41,30 @@ Scenario Outline: The one where the customer omits to enter an optional field
 	When the customer enters a Basic Message
 	But omits the 'field name' field
 	Then the message is not submitted successfully
-	And the customer is informed of the 'field name' validation error
+	And the customer is informed of the 'expected response' validation error
 
 	Examples: 
-	| response                 | field name    |
-	| Email may not be blank   | Email Address |
-	| Message may not be blank | Message       |
-	| Subject may not be blank | Subject       |
-	| Name may not be blank    | Name          |
-	| Phone may not be blank   | Phone number  |
+	| field name    | expected response         |
+	| Email Address | Email may not be blank   |
+	| Message       | Message may not be blank |
+	| Subject       | Subject may not be blank |
+	| Name          | Name may not be blank    |
+	| Phone number  | Phone may not be blank   |
 
 @task1
+@manual
 Scenario Outline: The one where the customer enters too few or too many characters
 	Given the Contact Us page is displayed
 	When the customer enters a Basic Message
 	But the 'field name' is 'length' characters long
 		Then the message is not submitted successfully
-	And the customer is informed of the 'field name' validation error
+	And the customer is informed of the 'expected response' validation error
 
 	Examples: 
-	| response                                       | field name   | length | reason    |
-	| Message must be between 20 and 2000 characters | Message      | 19     | too short |
-	| Message must be between 20 and 2000 characters | Message      | 2001   | too long  |
-	| Subject must be between 5 and 100 characters   | Subject      | 4      | too short |
-	| Subject must be between 5 and 100 characters   | Subject      | 101    | too long  |
-	| Phone must be between 11 and 21 characters     | Phone number | 10     | too short |
-	| Phone must be between 11 and 21 characters     | Phone number | 22     | too long  |
+	| field name   | length | reason    | expected response                               |
+	| Message      | 19     | too short | Message must be between 20 and 2000 characters |
+	| Message      | 2001   | too long  | Message must be between 20 and 2000 characters |
+	| Subject      | 4      | too short | Subject must be between 5 and 100 characters   |
+	| Subject      | 101    | too long  | Subject must be between 5 and 100 characters   |
+	| Phone number | 10     | too short | Phone must be between 11 and 21 characters     |
+	| Phone number | 22     | too long  | Phone must be between 11 and 21 characters     |
