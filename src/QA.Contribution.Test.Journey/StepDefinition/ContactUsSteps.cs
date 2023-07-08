@@ -110,14 +110,18 @@ namespace QA.Contribution.Test.Journey.StepDefinition
                 case "Phone number":
                     _contactUsPage.ClearPhoneNumber();
                     break;
+
+                default:
+                    Assert.Fail("This fieldName cannot be cleared: " + fieldName);
+                    break;
             }
-            
         }
 
         [Then(@"the customer is informed of the '([^']*)' validation error")]
         public void ThenTheCustomerIsInformedOfTheValidationError(string expectedResponse)
         {
-            throw new PendingStepException();
+            var message = _contactUsPage.GetErrorMessage();
+            Assert.IsTrue(message.Contains(expectedResponse));
         }
 
         [When(@"the '([^']*)' is '([^']*)' characters long")]
