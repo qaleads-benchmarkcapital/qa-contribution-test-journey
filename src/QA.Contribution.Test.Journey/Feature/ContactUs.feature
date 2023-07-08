@@ -7,7 +7,7 @@
 	A Contact Form that allows customers to send a message to customer servies.
 	In submitting a message the customer uses the subject line to indicate the message title.
 	In submitting a message the customer must provide a valid 'Email address' and a 'Messsage' body for the message to be submitted successfully.
-	In submitting a message, the customer can provide a valid 'Phone' number.
+	In submitting a message, the customer must provide a valid 'Phone' number.
 	
 	Glossary:
 	Basic Message - A message that can be submitted.
@@ -34,3 +34,36 @@ Scenario: The one where the customer provides a malformed email address
 	Given the Contact Us page is displayed
 	When the customer completes a Basic Message with a malformed email address
 	Then the user is presented with the correct validation message
+
+@task1
+Scenario Outline: The one where the customer omits to enter an optional field
+	Given the Contact Us page is displayed
+	When the customer enters a Basic Message
+	But omits the 'field name' field
+	Then the message is not submitted successfully
+	And the customer is informed of the 'field name' validation error
+
+	Examples: 
+	| response                 | field name    |
+	| Email may not be blank   | Email Address |
+	| Message may not be blank | Message       |
+	| Subject may not be blank | Subject       |
+	| Name may not be blank    | Name          |
+	| Phone may not be blank   | Phone number  |
+
+@task1
+Scenario Outline: The one where the customer enters too few or too many characters
+	Given the Contact Us page is displayed
+	When the customer enters a Basic Message
+	But the 'field name' is 'length' characters long
+		Then the message is not submitted successfully
+	And the customer is informed of the 'field name' validation error
+
+	Examples: 
+	| response                                       | field name   | length | reason    |
+	| Message must be between 20 and 2000 characters | Message      | 19     | too short |
+	| Message must be between 20 and 2000 characters | Message      | 2001   | too long  |
+	| Subject must be between 5 and 100 characters   | Subject      | 4      | too short |
+	| Subject must be between 5 and 100 characters   | Subject      | 101    | too long  |
+	| Phone must be between 11 and 21 characters     | Phone number | 10     | too short |
+	| Phone must be between 11 and 21 characters     | Phone number | 22     | too long  |
