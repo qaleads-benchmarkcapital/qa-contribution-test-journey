@@ -2,7 +2,7 @@
 
 using OpenQA.Selenium;
 
-using TechTalk.SpecFlow;
+using Reqnroll;
 
 namespace QA.Contribution.Test.Journey.Hook
 {
