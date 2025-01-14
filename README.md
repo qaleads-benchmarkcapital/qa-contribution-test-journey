@@ -38,8 +38,8 @@ The solution as is will allow you to run the Existing Scenarios from within the 
 https://github.com/qaleads-benchmarkcapital/qa-contribution-test-journey 
 
 ### Toolbox
-The solution uses `Selenium`, `Specflow`, `SpecFlow runner` and `C# / .net core 3.1`.
-We think it will be best if you use a version of `Visual Studio 2019/2022` together with `SpecFlow for Visual Studio 2019/2022` extension to complete this technical test.
+The solution uses `Selenium`, `Reqnroll`, `xunit runner` and `C# / .net 8.0`.
+We think it will be best if you use a version of `Visual Studio 2019/2022` together with `Reqnroll for Visual Studio 2022` extension to complete this technical test.
 We recommend using `GitHub Desktop` to work with the Code in `GitHub`.
 
 ### Existing Scenarios
